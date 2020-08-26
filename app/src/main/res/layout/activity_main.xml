@@ -8,25 +8,88 @@
 
     <EditText
         android:id="@+id/numero"
-        android:layout_width="381dp"
-        android:layout_height="93dp"
-        android:hint="Escriba el número de destino"
+        android:layout_width="328dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="28dp"
+        android:hint="#Teléfono Destino"
         android:textSize="22sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="68dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="147dp"
-        android:layout_height="112dp"
-        android:layout_marginBottom="310dp"
+        android:layout_width="299dp"
+        android:layout_height="69dp"
+        android:layout_marginBottom="220dp"
         android:onClick="button"
         android:text="Enviar SMS"
-        android:textColor="#117A1B"
+        android:textColor="#FFF200"
         android:textColorHighlight="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="132dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/TCPbutton"
+        android:layout_width="299dp"
+        android:layout_height="71dp"
+        android:layout_marginBottom="132dp"
+        android:onClick="TCPbutton"
+        android:text="Enviar TCP"
+        android:textColor="#0944F3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/UDPbutton"
+        android:layout_width="297dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="UDPbutton"
+        android:text="Enviar UDP"
+        android:textColor="#E40808"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TCPbutton"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/IP"
+        android:layout_width="330dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Dirección IP Destino "
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numero" />
+
+    <EditText
+        android:id="@+id/puerto"
+        android:layout_width="333dp"
+        android:layout_height="80dp"
+        android:ems="10"
+        android:hint="#Puerto Destino"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IP"
+        app:layout_constraintVertical_bias="0.202" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

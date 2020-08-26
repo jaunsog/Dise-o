@@ -1,5 +1,11 @@
 package com.example.tiorico;
 
+import android.os.AsyncTask;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.Socket;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -21,24 +27,31 @@ import static android.widget.Toast.*;
 import static android.widget.Toast.makeText;
 
 public class MainActivity extends AppCompatActivity {
-    EditText numero;
+    EditText numero,IP, puerto;
+
     private static final int REQUEST_CODE_LOCATION_PERMISSION = 1;
     int cambiar;
+    int TMensaje  = 0;
     String Longitude;
     String Latitude;
+    String sms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        IP = (EditText) findViewById(R.id.IP);
+        puerto = (EditText) findViewById(R.id.puerto);
         numero = (EditText) findViewById(R.id.numero);
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, PackageManager.PERMISSION_GRANTED);
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
+        ActivityCompat.requestPermissions(this, new String[]{ Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
-
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PackageManager.PERMISSION_GRANTED);
     }
+
     public void button(View view) {
         cambiar = 0;
+
         if (ContextCompat.checkSelfPermission(
                 getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION
         ) != PackageManager.PERMISSION_GRANTED) {
@@ -60,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
                 Calendar calendar = Calendar.getInstance();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMM-yyyy-hh:mm:ss");
                 String dateTime = simpleDateFormat.format(calendar.getTime());
-                String sms= "Latitud= " + Latitude + "\n Longitud= " +Longitude+"\n TimeStamp= "+dateTime;
+                sms= "Latitud= " + Latitude + "\n Longitud= " +Longitude+"\n TimeStamp= "+dateTime;
+
                 String phoneNumber = numero.getText().toString().trim();
                 SmsManager smsManager = SmsManager.getDefault();
                 smsManager.sendTextMessage(phoneNumber, null, sms, null, null);
@@ -132,14 +146,42 @@ public class MainActivity extends AppCompatActivity {
                             double longitude = locationResult.getLocations().get(latestLocationIndex).getLongitude();
                             Latitude = Double.toString(latitude);
                             Longitude = Double.toString(longitude);
-                            MyMessage(Latitude
-                                    ,Longitude);
+                            sms= "Latitud= " + Latitude + ". Longitud= " +Longitude+".";
+                            switch (TMensaje) {
+                                case 0:
+                                    MyMessage(Latitude
+                                            , Longitude);
+                                    break;
+                                case 1:
+                                    TCPMessage();
+                                    break;
+                                case 2:
+                                    UDPMessage();
+                                    break;
+                            }
                         }
                     }
                 }, Looper.getMainLooper());
                 }
 
 
+    public void TCPbutton(View view) {
+        TMensaje = 1;
+        button(view);
+    }
+
+    public void UDPbutton(View view) {
+        TMensaje = 2;
+        button(view);
+    }
+    public void TCPMessage(){
+        EnviaMensajes EnviaMensajes = new EnviaMensajes();
+        EnviaMensajes.execute(sms);
+        TMensaje=0;}
+    public void UDPMessage (){
+        EnviaUDP EnviaUDP = new EnviaUDP();
+        EnviaUDP.execute(sms);
+    TMensaje=0;}
 }
 
 
