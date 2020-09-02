@@ -1,9 +1,6 @@
 package com.example.tiorico;
-
-
 import android.os.AsyncTask;
 import android.widget.EditText;
-
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
