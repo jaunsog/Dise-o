@@ -7,13 +7,16 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/TCPbutton"
+        android:id="@+id/Stop"
         android:layout_width="299dp"
         android:layout_height="71dp"
-        android:layout_marginBottom="132dp"
-        android:onClick="TCPbutton"
-        android:text="Enviar TCP"
-        android:textColor="#0944F3"
+        android:layout_marginBottom="64dp"
+        android:onClick="Stop"
+        android:text="Detener"
+        android:textColor="#FF0000"
+        android:textColorHighlight="#72FFFFFF"
+        android:textColorLink="#000000"
+        android:textIsSelectable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -22,16 +25,14 @@
         android:id="@+id/UDPbutton"
         android:layout_width="297dp"
         android:layout_height="67dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="164dp"
         android:onClick="UDPbutton"
-        android:text="Enviar UDP"
-        android:textColor="#E40808"
+        android:text="Comenzar UDP"
+        android:textColor="#248500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TCPbutton"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/IP"
