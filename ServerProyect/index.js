@@ -6,7 +6,7 @@ const mysql = require('mysql');
 var ubi;
 
 
-
+//prueba Paul
 //hola, las credenciales las modifica el usuario
 // Credentials for connecting the database
 const database = mysql.createConnection({
