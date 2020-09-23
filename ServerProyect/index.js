@@ -7,7 +7,7 @@ var ubi;
 
 
 
-//hola
+//hola, las credenciales las modifica el usuario
 // Credentials for connecting the database
 const database = mysql.createConnection({
     host: 
