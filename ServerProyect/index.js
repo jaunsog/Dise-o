@@ -10,10 +10,10 @@ var ubi;
 
 // Credentials for connecting the database
 const database = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'admin',
-    database: 'base'
+    host: 
+    user: 'admin',
+    password: 
+    database: 'sys'
 });
 
 // Establish connection
@@ -62,8 +62,4 @@ app.get('/ruta', function (req, res) {
 	console.log(ubi);
 	res.json(ubi);
 });
-
-
-
-
 

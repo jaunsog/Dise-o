@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+</head>
+
+
+<body>
+	<h1>TioRicoSAS</h1>
+
+	<p class="latitude" id="latitude"></p>
+	<p class="longitude" id="longitude"></p>
+	<p class="timestep" id="time"></p>
+	<button class="boton" onclick="Centrado()">Centrar</button>
+	<button class="boton1" onclick="trazarStart()">Comenzar Trazado</button>
+	<button class="boton2" onclick="limpiar()">Detener Trazado</button>
+	<div id="map">
+	</div>
+	<style>
+		.boton1 {
+
+			position: absolute;
+			opacity: 0.8;
+			top: 26rem;
+			left: 1rem;
+			color: #000000;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			height: 8vh;
+			width: 12vw;
+
+		}
+
+		.boton2 {
+
+			position: absolute;
+			opacity: 0.8;
+			top: 30rem;
+			left: 1rem;
+			color: #000000;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			height: 8vh;
+			width: 12vw;
+
+		}
+
+		.boton {
+			position: absolute;
+			opacity: 0.8;
+			top: 34rem;
+			left: 1rem;
+			color: #000000;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			height: 8vh;
+			width: 12vw;
+		}
+
+		h2 {
+			position: absolute;
+			top: 20rem;
+			left: 1rem;
+			color: #e9f2eb;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+		}
+
+		p {
+
+			position: absolute;
+			top: 9rem;
+			left: 1rem;
+			color: #e9f2eb;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+		}
+
+		.latitude {
+			top: 7rem;
+		}
+
+		.longitude {
+			top: 8rem;
+		}
+
+		.timestep {
+			top: 9rem;
+		}
+
+		h1 {
+			position: absolute;
+			top: 3rem;
+			left: 1rem;
+			color: #e9f2eb;
+			z-index: 20;
+			margin: 0;
+			padding: 10;
+		}
+
+		#map {
+			position: absolute;
+			height: 94vh;
+			width: 98vw;
+
+		}
+	</style>
+
+	<script>
+		var map;
+		var markers = [];
+		var centrar = [];
+		var polylinePlanCoordinates = [];
+		var path1;
+		var x = 0;
+		var i;
+		function iniciarMap() {
+			let str;
+			var coord1 = { lat: 10.972291426090106, lng: -74.40225011664694 };
+			let latitud;
+			let longitud;
+			let time;
+			var image = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Delivery-truck.svg/512px-Delivery-truck.svg.png"
+
+
+			map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 11,
+				center: coord1
+			});
+			marker = new google.maps.Marker({
+				map: map,
+
+			});
+			markers.push(marker);
+			movimiento();
+		}
+
+		async function Centrado() {
+			try {
+				const ubic = await refresh();
+				const coord = { lat: ubic.latitude, lng: ubic.longitude };
+				map.setCenter(coord);
+			} catch (error) { }
+		}
+
+		async function refresh() {
+			const response = await fetch('/ruta', { method: 'GET' });
+			const jsons = await response.json();
+			console.log(jsons);
+			return jsons;
+		}
+		async function movimiento() {
+			try {
+				const ubic = await refresh();
+				const coord = { lat: ubic.latitude, lng: ubic.longitude };
+				const i = 0;
+				markers[0].setPosition(coord);
+				texto(ubic);
+				trazar(ubic);
+			} catch (error) { }
+			setTimeout(movimiento, 3000);
+		}
+
+		async function texto(ubic) {
+			document.getElementById('latitude').innerHTML = ubic.latitude;
+			document.getElementById('longitude').innerHTML = ubic.longitude;
+			document.getElementById("time").innerHTML = ubic.timestamp;
+		}
+		refresh();
+
+
+
+		async function trazar(ubic) {
+			const valor = ubic;
+			polylinePlanCoordinates.push({ lat: ubic.latitude, lng: ubic.longitude });
+			if (x == 1) {
+				if (i==0){
+				path1.setMap(null);
+				}
+			} else {
+				polylinePlanCoordinates = [];
+			}
+			//update the polyline with the updated path
+			
+			path1 = new google.maps.Polyline({
+				path: polylinePlanCoordinates,
+				geodesic: true,
+				strokeColor: '#FF0000',
+				strokeOpacity: 1.0,
+				strokeWeight: 2
+			});
+			i=0;
+			path1.setMap(map);
+			
+
+		}
+		async function limpiar() {
+			x = 0;
+			path1.setMap(null);
+		}
+		async function trazarStart() {
+			x = 1;
+			
+		}
+
+
+	</script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEul9Esi6UslpNJ_gHAZh_S3CMvlY6vzM&callback=iniciarMap"></script>
+
+</body>
+
+</html>
