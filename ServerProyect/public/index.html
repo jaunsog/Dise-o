@@ -7,6 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 </head>
 
+
 <body>
 	<h1>TioRicoSAS</h1>
 
@@ -182,6 +183,7 @@
 		refresh();
 
 		async function trazar() {
+			if (o==0){
 			var polylinePlanCoordinates = [];
 			const response = await fetch('/baseDeDatos', { method: 'GET' });
 			const data = await response.json();
@@ -197,6 +199,8 @@
 				strokeWeight: 2
 			});
 			path1.setMap(map);
+		}
+			o = 1;
 		}
 		
 		
