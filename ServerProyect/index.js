@@ -4,15 +4,13 @@ const dgram = require('dgram');
 const socket = dgram.createSocket('udp4');
 const mysql = require('mysql');
 var ubi;
+require('dotenv').config();
+console.log(process.env)
 
-
-//prueba Paul
-//hola, las credenciales las modifica el usuario
-// Credentials for connecting the database
 const database = mysql.createConnection({
-    host: 
-    user: 'admin',
-    password: 
+    host: process.env.HO,
+    user: 'admin', 
+    password: process.env.PA,
     database: 'sys'
 });
 
@@ -63,3 +61,10 @@ app.get('/ruta', function (req, res) {
 	res.json(ubi);
 });
 
+app.get('/baseDeDatos', function (req, res){
+	let sql = 'SELECT * FROM new_table'
+	let query = database.query(sql,(err,result) =>{
+		if (err) throw err;
+		res.end(JSON.stringify(result))
+	})
+})

@@ -15,7 +15,7 @@
 	<p class="longitude" id="longitude"></p>
 	<p class="timestep" id="time"></p>
 	<button class="boton" onclick="Centrado()">Centrar</button>
-	<button class="boton1" onclick="trazarStart()">Comenzar Trazado</button>
+	<button class="boton1" onclick="trazar()">Comenzar Trazado</button>
 	<button class="boton2" onclick="limpiar()">Detener Trazado</button>
 	<div id="map">
 	</div>
@@ -122,6 +122,7 @@
 		var path1;
 		var x = 0;
 		var i;
+		var o = 0;
 		function iniciarMap() {
 			let str;
 			var coord1 = { lat: 10.972291426090106, lng: -74.40225011664694 };
@@ -163,8 +164,13 @@
 				const coord = { lat: ubic.latitude, lng: ubic.longitude };
 				const i = 0;
 				markers[0].setPosition(coord);
+				if (o == 1) {
+					const path = path1.getPath();
+					path.push(markers[0].getPosition());
+					path.setMap(null);
+					path.setMap(map);
+				}
 				texto(ubic);
-				trazar(ubic);
 			} catch (error) { }
 			setTimeout(movimiento, 3000);
 		}
@@ -176,20 +182,14 @@
 		}
 		refresh();
 
-
-
-		async function trazar(ubic) {
-			const valor = ubic;
-			polylinePlanCoordinates.push({ lat: ubic.latitude, lng: ubic.longitude });
-			if (x == 1) {
-				if (i==0){
-				path1.setMap(null);
-				}
-			} else {
-				polylinePlanCoordinates = [];
-			}
-			//update the polyline with the updated path
-			
+		async function trazar() {
+			var polylinePlanCoordinates = [];
+			const response = await fetch('/baseDeDatos', { method: 'GET' });
+			const data = await response.json();
+			data.forEach(object => {
+				//se puede colocar restricción 
+				polylinePlanCoordinates.push({ lat: parseFloat(object.latitude), lng: parseFloat(object.longitude) });
+			})
 			path1 = new google.maps.Polyline({
 				path: polylinePlanCoordinates,
 				geodesic: true,
@@ -197,19 +197,16 @@
 				strokeOpacity: 1.0,
 				strokeWeight: 2
 			});
-			i=0;
 			path1.setMap(map);
-			
-
 		}
-		async function limpiar() {
-			x = 0;
+		
+		
+		
+		function limpiar() {
 			path1.setMap(null);
+			o=0;
 		}
-		async function trazarStart() {
-			x = 1;
-			
-		}
+
 
 
 	</script>
