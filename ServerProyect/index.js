@@ -9,9 +9,10 @@ console.log(process.env)
 
 const database = mysql.createConnection({
     host: process.env.HO,
-    user: 'admin', 
+    user: 'ingrese usuario de base de datos', 
     password: process.env.PA,
-    database: 'sys'
+	database: 'ingrese nombre del schemas'
+	//el endpoint y la contraseña de la base de datos se añaden en un archivo .env
 });
 
 // Establish connection
