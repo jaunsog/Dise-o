@@ -23,9 +23,6 @@ database.connect((err) => {
 	
 });
 
-	
-
-
 
 socket.on('error', (err) => {
 	console.log(`server error:\n${err.stack}`);
