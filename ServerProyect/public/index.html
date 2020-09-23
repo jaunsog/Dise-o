@@ -163,6 +163,7 @@
 				const ubic = await refresh();
 				const coord = { lat: ubic.latitude, lng: ubic.longitude };
 				const i = 0;
+				texto(ubic);
 				markers[0].setPosition(coord);
 				if (o == 1) {
 					const path = path1.getPath();
@@ -170,8 +171,9 @@
 					path.setMap(null);
 					path.setMap(map);
 				}
-				texto(ubic);
+				
 			} catch (error) { }
+			
 			setTimeout(movimiento, 3000);
 		}
 
@@ -183,6 +185,7 @@
 		refresh();
 
 		async function trazar() {
+			if (o==0){
 			var polylinePlanCoordinates = [];
 			const response = await fetch('/baseDeDatos', { method: 'GET' });
 			const data = await response.json();
@@ -198,6 +201,8 @@
 				strokeWeight: 2
 			});
 			path1.setMap(map);
+		}
+			o = 1;
 		}
 		
 		
