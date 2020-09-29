@@ -10,28 +10,99 @@
 
 <body>
 	<h1>TioRicoSAS</h1>
-
+	<h3 class="Title">Seleccione su rango de interés para trazar una ruta histórica:</h3>
 	<p class="latitude" id="latitude"></p>
 	<p class="longitude" id="longitude"></p>
 	<p class="timestep" id="time"></p>
 	<button class="boton" onclick="Centrado()">Centrar</button>
-	<button class="boton1" onclick="trazar()">Comenzar Trazado</button>
-	<button class="boton2" onclick="limpiar()">Detener Trazado</button>
+	<button class="boton1" onclick="trazar()">Trazar Historico</button>
+	<button class="boton2" onclick="limpiar()">Borrar Historico</button>
 	<div id="map">
 	</div>
-	<style>
-		.boton1 {
+	<form>
 
+		<label class="date1"> Comienzo:</label>
+		<input class="date11" id="date01" type="datetime-local" pattern="yyyy-MM-dd-HH:mm:ss" /><br>
+	</form>
+	<form>
+
+		<label class="date2"> Final:</label>
+		<input class="date22" id="date02" type="datetime-local" /><br>
+	</form>
+	<style>
+		.Title {
 			position: absolute;
 			opacity: 0.8;
 			top: 26rem;
 			left: 1rem;
-			color: #000000;
+			color: #FFFFFF;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			height: 20vh;
+			width: 20vw;
+		}
+
+		.date2 {
+			position: absolute;
+			opacity: 0.8;
+			top: 33rem;
+			left: 1rem;
+			color: #FFFFFF;
 			z-index: 10;
 			margin: 0;
 			padding: 0;
 			height: 8vh;
 			width: 12vw;
+		}
+
+		.date22 {
+			position: absolute;
+			opacity: 0.6;
+			top: 34rem;
+			left: 1rem;
+			color: #000000;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+		}
+
+		.date1 {
+			position: absolute;
+			opacity: 0.8;
+			top: 30rem;
+			left: 1rem;
+			color: #FFFFFF;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			height: 8vh;
+			width: 12vw;
+		}
+
+		.date11 {
+			position: absolute;
+			opacity: 0.6;
+			top: 31rem;
+			left: 1rem;
+			color: #000000;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+		}
+
+		.boton1 {
+
+			position: absolute;
+			opacity: 0.8;
+			top: 36rem;
+			left: 1rem;
+			color: #000000;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			height: 6vh;
+			width: 18vw;
 
 		}
 
@@ -39,28 +110,28 @@
 
 			position: absolute;
 			opacity: 0.8;
-			top: 30rem;
-			left: 1rem;
+			top: 36rem;
+			left: 18rem;
 			color: #000000;
 			z-index: 10;
 			margin: 0;
 			padding: 0;
-			height: 8vh;
-			width: 12vw;
+			height: 6vh;
+			width: 18vw;
 
 		}
 
 		.boton {
 			position: absolute;
 			opacity: 0.8;
-			top: 34rem;
-			left: 1rem;
+			top: 28rem;
+			left: 80rem;
 			color: #000000;
 			z-index: 10;
 			margin: 0;
 			padding: 0;
-			height: 8vh;
-			width: 12vw;
+			height: 5vh;
+			width: 4vw;
 		}
 
 		h2 {
@@ -123,6 +194,10 @@
 		var x = 0;
 		var i;
 		var o = 0;
+		var polylineLive = [];
+
+
+
 		function iniciarMap() {
 			let str;
 			var coord1 = { lat: 10.972291426090106, lng: -74.40225011664694 };
@@ -140,6 +215,14 @@
 				map: map,
 
 			});
+			pathLive = new google.maps.Polyline({
+				path: polylineLive,
+				geodesic: true,
+				strokeColor: '#0095b6',
+				strokeOpacity: 1.0,
+				strokeWeight: 2
+			});
+			pathLive.setMap(map);
 			markers.push(marker);
 			movimiento();
 		}
@@ -165,15 +248,15 @@
 				const i = 0;
 				texto(ubic);
 				markers[0].setPosition(coord);
-				if (o == 1) {
-					const path = path1.getPath();
-					path.push(markers[0].getPosition());
-					path.setMap(null);
-					path.setMap(map);
-				}
-				
+
+				const path = pathLive.getPath();
+				path.push(markers[0].getPosition());
+				path.setMap(null);
+				path.setMap(map);
+
+
 			} catch (error) { }
-			
+
 			setTimeout(movimiento, 3000);
 		}
 
@@ -181,18 +264,49 @@
 			document.getElementById('latitude').innerHTML = ubic.latitude;
 			document.getElementById('longitude').innerHTML = ubic.longitude;
 			document.getElementById("time").innerHTML = ubic.timestamp;
+
 		}
 		refresh();
 
 		async function trazar() {
-			if (o==0){
-			var polylinePlanCoordinates = [];
+			if (o==1){
+				path1.setMap(null);
+			}
+			var d1 = document.getElementById("date01").value;
+			d11 = d1.toString().split('-');
+			var d1array = [];
+			d1array[0] = d11[0];
+			d1array[1] = d11[1];
+			d111 = d11[2].split('T');
+			d1array[2] = d111[0];
+			d1111 = d111[1].split(':');
+			d1array[3] = d1111[0];
+			d1array[4] = d1111[1];
+			
+			var d2 = document.getElementById("date02").value;
+			d22 = d2.toString().split('-');
+			var d2array = [];
+			d2array[0] = d22[0];
+			d2array[1] = d22[1];
+			d222 = d22[2].split('T');
+			d2array[2] = d222[0];
+			d2222 = d222[1].split(':');
+			d2array[3] = d2222[0];
+			d2array[4] = d2222[1];
+			
+			var totald1 = d1array[0] + '' + d1array[1] + '' + d1array[2] + '' + d1array[3] + '' + d1array[4];
+			var totald2 = d2array[0] + '' + d2array[1] + '' + d2array[2] + '' + d2array[3] + '' + d2array[4];
+			console.log(parseInt(totald1));
+			console.log(totald2);
+			polylinePlanCoordinates = [];
 			const response = await fetch('/baseDeDatos', { method: 'GET' });
 			const data = await response.json();
-			data.forEach(object => {
-				//se puede colocar restricción 
-				polylinePlanCoordinates.push({ lat: parseFloat(object.latitude), lng: parseFloat(object.longitude) });
-			})
+			data.forEach((object) =>{
+				var totalobject = object.año + '' + object.mes + '' + object.dia + '' + object.hora + '' + object.minuto;
+				if ((parseInt(totalobject) >= parseInt(totald1)) && (parseInt(totalobject) <= parseInt(totald2))) {
+					polylinePlanCoordinates.push({ lat: parseFloat(object.latitude), lng: parseFloat(object.longitude) });
+				}
+			});
 			path1 = new google.maps.Polyline({
 				path: polylinePlanCoordinates,
 				geodesic: true,
@@ -200,19 +314,16 @@
 				strokeOpacity: 1.0,
 				strokeWeight: 2
 			});
+			console.log(polylinePlanCoordinates);
 			path1.setMap(map);
+			o=1;
 		}
-			o = 1;
-		}
-		
-		
-		
+
+
+
 		function limpiar() {
 			path1.setMap(null);
-			o=0;
 		}
-
-
 
 	</script>
 	<script

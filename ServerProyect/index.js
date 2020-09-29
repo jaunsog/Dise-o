@@ -8,20 +8,20 @@ require('dotenv').config();
 console.log(process.env)
 
 const database = mysql.createConnection({
-    host: process.env.HO,
-    user: 'ingrese usuario de base de datos', 
-    password: process.env.PA,
-	database: 'ingrese nombre del schemas'
+	host: process.env.HO,
+	user: 'admin',
+	password: process.env.PA,
+	database: 'sys'
 	//el endpoint y la contraseña de la base de datos se añaden en un archivo .env
 });
 
 // Establish connection
 database.connect((err) => {
-    if (err) {
-        throw err;
-    }
+	if (err) {
+		throw err;
+	}
 	console.log('Connected to DB');
-	
+
 });
 
 
@@ -33,10 +33,12 @@ socket.on('error', (err) => {
 socket.on('message', (msg, rinfo) => {
 	console.log(`El servidor recibió: ${msg} de ${rinfo.address}:${rinfo.port}`);
 	msg = msg.toString().split(',');
-	msg = {latitude: parseFloat(msg[0]), longitude: parseFloat(msg[1]), timestamp: msg[2] };
+	time = msg[2].split('-');
+	//time[0]:año - time[1]:mes - time[2]:dia - time[3]:hora - time[4]:minuto - time[5]:segundo
+	msg = { latitude: parseFloat(msg[0]), longitude: parseFloat(msg[1]), año: time[0], mes: time[1], dia: time[2], hora: time[3], minuto: time[4], segundo: time[5] };
 	let sql = 'INSERT INTO new_table SET ?';
-    let query = database.query(sql, msg, (err, result) => {
-        if (err) throw err;
+	let query = database.query(sql, msg, (err, result) => {
+		if (err) throw err;
 	});
 	console.log(msg);
 	ubi = msg;
@@ -59,9 +61,10 @@ app.get('/ruta', function (req, res) {
 	res.json(ubi);
 });
 
-app.get('/baseDeDatos', function (req, res){
+app.get('/baseDeDatos', function (req, res) {
+	
 	let sql = 'SELECT * FROM new_table'
-	let query = database.query(sql,(err,result) =>{
+	let query = database.query(sql, (err, result) => {
 		if (err) throw err;
 		res.end(JSON.stringify(result))
 	})
