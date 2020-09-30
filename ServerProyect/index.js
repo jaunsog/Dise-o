@@ -11,7 +11,7 @@ const database = mysql.createConnection({
 	host: process.env.HO,
 	user: 'admin',
 	password: process.env.PA,
-	database: 'sys'
+	database: 'Proyecto'
 	//el endpoint y la contraseña de la base de datos se añaden en un archivo .env
 });
 
