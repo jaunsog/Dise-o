@@ -124,9 +124,12 @@
 		.boton {
 			position: absolute;
 			opacity: 0.8;
-			top: 28rem;
-			left: 80rem;
 			color: #000000;
+			background-image:url(icon.ico);
+			opacity: 0.8;
+			background-repeat:no-repeat;
+			top: 20rem;
+			left: 1rem;
 			z-index: 10;
 			margin: 0;
 			padding: 0;
@@ -308,7 +311,7 @@
 				}
 			});
 			path1 = new google.maps.Polyline({
-				path: polylinePlanCoordinates,
+				path: polisuave,
 				geodesic: true,
 				strokeColor: '#FF0000',
 				strokeOpacity: 1.0,
@@ -318,6 +321,20 @@
 			path1.setMap(map);
 			o=1;
 		}
+
+
+
+		function limpiar() {
+			path1.setMap(null);
+		}
+
+	</script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEul9Esi6UslpNJ_gHAZh_S3CMvlY6vzM&callback=iniciarMap"></script>
+
+</body>
+
+</html>
 
 
 
