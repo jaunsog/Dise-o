@@ -20,7 +20,7 @@ database.connect((err) => {
 	if (err) {
 		throw err;
 	}
-	console.log('Connected to DB');
+	console.log('Connected to DDBB');
 
 });
 
