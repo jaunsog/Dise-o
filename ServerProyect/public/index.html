@@ -270,9 +270,9 @@
 
 		async function texto(ubic) {
 			document.getElementById('latitude').innerHTML = "Latitud: "+ubic.latitude;
-			document.getElementById('longitude').innerHTML = "Longitud: "ubic.longitude;
+			document.getElementById('longitude').innerHTML = "Longitud: "+ubic.longitude;
 			timestamp= ubic.año+''+ubic.mes+''+ubic.dia+''+ubic.hora+''+ubic.minuto;
-			document.getElementById("time").innerHTML = "TimeStamp: "timestamp;
+			document.getElementById("time").innerHTML = "TimeStamp: "+timestamp;
 
 		}
 		refresh();
