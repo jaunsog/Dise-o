@@ -11,12 +11,13 @@
 <body>
 	<h1>TioRicoSAS</h1>
 	<h3 class="Title">Seleccione su rango de interés para trazar una ruta histórica:</h3>
-	<p class="latitude" id="latitude"></p>
-	<p class="longitude" id="longitude"></p>
-	<p class="timestep" id="time"></p>
-	<button class="boton" onclick="Centrado()">Centrar</button>
-	<button class="boton1" onclick="trazar()">Trazar Historico</button>
-	<button class="boton2" onclick="limpiar()">Borrar Historico</button>
+	<p class="subtitulo" id="subtitulo">Valores de última posición:</p>
+	<p class="latitude" id="latitude">Latitud:</p>
+	<p class="longitude" id="longitude">Longitud:</p>
+	<p class="timestep" id="time">TimeStamp:</p>
+	<button class="boton" onclick="Centrado()"></button>
+	<button class="boton1" onclick="trazar()">Trazar Historico (línea roja)</button>
+	<button class="boton2" onclick="limpiar()">No mostrar Historico</button>
 	<div id="map">
 	</div>
 	<form>
@@ -110,8 +111,8 @@
 
 			position: absolute;
 			opacity: 0.8;
-			top: 36rem;
-			left: 18rem;
+			top: 39.2rem;
+			left: 1rem;
 			color: #000000;
 			z-index: 10;
 			margin: 0;
@@ -122,16 +123,17 @@
 		}
 
 		.boton {
+
 			position: absolute;
+			background-image:url(icon.ico);
+			background-repeat:no-repeat;
 			opacity: 0.8;
-			top: 28rem;
-			left: 80rem;
-			color: #000000;
+			top: 20rem;
+			left: 1rem;
 			z-index: 10;
-			margin: 0;
-			padding: 0;
-			height: 5vh;
-			width: 4vw;
+			height: 40px;
+			width: 40px;
+
 		}
 
 		h2 {
@@ -155,16 +157,20 @@
 			padding: 0;
 		}
 
-		.latitude {
-			top: 7rem;
+		.subtitulo {
+			top: 6rem;
 		}
 
-		.longitude {
+		.latitude {
 			top: 8rem;
 		}
 
-		.timestep {
+		.longitude {
 			top: 9rem;
+		}
+
+		.timestep {
+			top: 10rem;
 		}
 
 		h1 {
@@ -179,8 +185,10 @@
 
 		#map {
 			position: absolute;
-			height: 94vh;
-			width: 98vw;
+			top: 0;
+			left: 0;
+			height: 100% !important;
+			width: 100% !important;
 
 		}
 	</style>
@@ -261,9 +269,9 @@
 		}
 
 		async function texto(ubic) {
-			document.getElementById('latitude').innerHTML = ubic.latitude;
-			document.getElementById('longitude').innerHTML = ubic.longitude;
-			document.getElementById("time").innerHTML = ubic.timestamp;
+			document.getElementById('latitude').innerHTML = "Latitud:"+ ubic.latitude+"°";
+			document.getElementById('longitude').innerHTML = "Longitud:"+ ubic.longitude+"°";
+			document.getElementById("time").innerHTML = "TimeStamp:"+ ubic.timestamp;
 
 		}
 		refresh();
