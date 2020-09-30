@@ -269,9 +269,10 @@
 		}
 
 		async function texto(ubic) {
-			document.getElementById('latitude').innerHTML = "Latitud:"+ ubic.latitude+"°";
-			document.getElementById('longitude').innerHTML = "Longitud:"+ ubic.longitude+"°";
-			document.getElementById("time").innerHTML = "TimeStamp:"+ ubic.timestamp;
+			document.getElementById('latitude').innerHTML = ubic.latitude;
+			document.getElementById('longitude').innerHTML = ubic.longitude;
+			timestamp= ubic.año+''+ubic.mes+''+ubic.dia+''+ubic.hora+''+ubic.minuto;
+			document.getElementById("time").innerHTML = timestamp;
 
 		}
 		refresh();
