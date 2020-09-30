@@ -14,7 +14,8 @@
 	<p class="subtitulo" id="subtitulo">Valores de última posición:</p>
 	<p class="latitude" id="latitude">Latitud:</p>
 	<p class="longitude" id="longitude">Longitud:</p>
-	<p class="timestep" id="time">TimeStamp:</p>
+	<p class="timestep" id="time">Tiempo:</p>
+
 	<button class="boton" onclick="Centrado()"></button>
 	<button class="boton1" onclick="trazar()">Trazar Historico (línea roja)</button>
 	<button class="boton2" onclick="limpiar()">No mostrar Historico</button>
@@ -271,8 +272,10 @@
 		async function texto(ubic) {
 			document.getElementById('latitude').innerHTML = "Latitud: "+ubic.latitude;
 			document.getElementById('longitude').innerHTML = "Longitud: "+ubic.longitude;
-			timestamp= ubic.año+''+ubic.mes+''+ubic.dia+''+ubic.hora+''+ubic.minuto;
-			document.getElementById("time").innerHTML = "TimeStamp: "+timestamp;
+
+			timestamp= ' fecha:'+ubic.año+'-'+ubic.mes+'-'+ubic.dia+'. hora:'+ubic.hora+'-'+ubic.minuto+".";
+			document.getElementById("time").innerHTML = "Tiempo: "+timestamp;
+
 
 		}
 		refresh();
