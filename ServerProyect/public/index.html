@@ -14,7 +14,8 @@
 	<p class="subtitulo" id="subtitulo">Valores de última posición:</p>
 	<p class="latitude" id="latitude">Latitud:</p>
 	<p class="longitude" id="longitude">Longitud:</p>
-	<p class="timestep" id="time">TimeStamp:</p>
+	<p class="timestep" id="time">Tiempo:</p>
+
 	<button class="boton" onclick="Centrado()"></button>
 	<button class="boton1" onclick="trazar()">Trazar Historico (línea roja)</button>
 	<button class="boton2" onclick="limpiar()">No mostrar Historico</button>
@@ -111,8 +112,8 @@
 
 			position: absolute;
 			opacity: 0.8;
-			top: 39.2rem;
-			left: 1rem;
+			top: 36rem;
+			left: 17rem;
 			color: #000000;
 			z-index: 10;
 			margin: 0;
@@ -128,11 +129,11 @@
 			background-image:url(icon.ico);
 			background-repeat:no-repeat;
 			opacity: 0.8;
-			top: 20rem;
+			top: 12rem;
 			left: 1rem;
 			z-index: 10;
-			height: 40px;
-			width: 40px;
+			height: 36px;
+			width: 36px;
 
 		}
 
@@ -271,8 +272,10 @@
 		async function texto(ubic) {
 			document.getElementById('latitude').innerHTML = "Latitud: "+ubic.latitude;
 			document.getElementById('longitude').innerHTML = "Longitud: "+ubic.longitude;
-			timestamp= ubic.año+''+ubic.mes+''+ubic.dia+''+ubic.hora+''+ubic.minuto;
-			document.getElementById("time").innerHTML = "TimeStamp: "+timestamp;
+
+			timestamp= ' Fecha:'+ubic.año+'-'+ubic.mes+'-'+ubic.dia+'. Hora:'+ubic.hora+'-'+ubic.minuto+".";
+			document.getElementById("time").innerHTML = "Tiempo: "+timestamp;
+
 
 		}
 		refresh();
