@@ -14,7 +14,11 @@
   "author": "Daniel Shiffman",
   "license": "MIT",
   "dependencies": {
+    "bezier-js": "^2.6.1",
     "express": "^4.16.4",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }

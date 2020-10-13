@@ -1,79 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
+    <title> Home Page</title>
+    <meta name ="viewport" content= "width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/homestyle.css">
 </head>
-<title>Tio rico </title>
 
 <body>
-	<h1>Tio rico</h1>
+        <div class="hero">
+            <div class= "nav-bar">
+                <div class="nav-logo">
+                </div>
+                    <div class="nav-links">
+                        <ul>
+                            <a href="#"><li  id="Home" >Home</li></a>
+                            
+                            <a href="home2.html"><li>Tracking</li></a>
+                        </ul>
+                        
+                    </div>
+                   
+            </div>
+            <div class="bannet-title">
+                <h1>Bienvenido a ricoSAS, desde donde podrá <span>monitorear las rutas, pasadas y presentes</span>, de su vehículo.</h1>
+                <button onclick="location.href='home2.html'" type="button" class="btn">¡Comencemos!</button>
+            </div>
+           
+        </div>
 
-	<p id="latitude"></p>
-	<p id="longitude"></p>
-	<p id="time"></p>
-	<h1 id="demo"></h1>
-	<h2>Mapa</h2>
-	<div id="map"></div>
-	<button onclick="iniciarMap()">Map</button>
-	<style>
-		#map {
-			height: 350px;
-			width: 100%;
-		}
-	</style>
 
-	<script>
-		var map;
-		var markers = [];
-
-		function iniciarMap() {
-			let str;
-			var coord1 = { lat: 10.972291426090106, lng: -74.40225011664694 };
-			let latitud;
-			let longitud;
-			let time;
-			map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 11,
-				center: coord1
-			});
-			marker = new google.maps.Marker({
-				map: map
-			});
-			markers.push(marker);
-			movimiento();
-		}
-
-		async function refresh() {
-
-			const response = await fetch('/ruta', { method: 'GET' });
-			const jsons = await response.json();
-			console.log(jsons);
-			return jsons;
-		}
-		async function movimiento() {
-			try {
-				const ubic = await refresh();
-				const coord = { lat: ubic.latitude, lng: ubic.longitude };
-				markers[0].setPosition(coord);
-				texto(ubic);
-			} catch (error) { }
-			setTimeout(movimiento, 3000);
-		}
-
-		async function texto(ubic) {
-			document.getElementById('latitude').innerHTML = ubic.latitude;
-			document.getElementById('longitude').innerHTML = ubic.longitude;
-			document.getElementById("time").innerHTML = ubic.timestamp;
-		}
-		refresh();
-	</script>
-	<script
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEul9Esi6UslpNJ_gHAZh_S3CMvlY6vzM&callback=iniciarMap"></script>
-
+        <script type="text/javascript">
+            document.getElementById("btn").onclick = function () {
+                location.href = "home2.html";
+            };
+        </script>
 </body>
-
-</html>
