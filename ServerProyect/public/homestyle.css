@@ -1,0 +1,91 @@
+*{
+    margin:0;
+    padding:0;
+    font-family:sans-serif
+}
+
+.hero{
+    
+	height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("fondo2.png");
+    background-position: center;
+    background-size: cover;
+    overflow-x: hidden;
+    position: relative;
+}
+.nav-bar{
+    display:flex;
+    padding:3.6vh 73vh;
+}
+
+.nav-links{
+    width: 100vh;
+    flex:1vh;
+    
+}
+.nav-links ul{
+    margin-left: 12vh;
+    display: inline;
+    
+}
+.nav-links ul li{
+    list-style: cross-fade();
+    display:inline-block;
+    padding:0 2.8vh;
+    
+}
+.nav-links ul a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 3vh;
+}
+.nav-links ul li::after{
+    content:'';
+    width:0;
+    height:0.5vh;
+    background:rgba(255, 0, 0, 0.541);
+    display:block;
+    margin:auto;
+    transition:.5s;
+}
+.nav-links ul li:hover:after{
+    width:100%;    
+}
+.bannet-title{
+    margin:5vh 6vh;
+    color: white;
+    position: absolute;
+    top: 8%;
+    left: 40%;
+}
+.bannet-title h1{
+    font-size: 6vh;
+    width: 90%;
+    margin-bottom:2vh;
+}
+.btn{
+    color:white;
+    width: 28vh;
+    height: 6vh;
+    position: relative;
+    background-color: rgba(255, 0, 0, 0.411);
+    font-size: 2.2vh;
+    background-blend-mode: overlay;
+}
+.bannet-title h1 span{
+    color:rgb(255, 208, 0);
+
+}
+@media(max-width: 700px){
+    .bannet-title{
+        margin:80 px 40 px}
+    .bannet-title{
+        left:25%
+    }
+    .nav-bar{
+        padding:10px 30 px;
+    }
+    .bannet-title h1{
+        font-size: 3.5vh;
+    }
+    }

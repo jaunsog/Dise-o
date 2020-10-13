@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<script src="js/app.js"></script>
+	<script src="js/geolocalizacion.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="hero">
+		<div class= "nav-bar">
+			<div class="nav-logo">
+			</div>
+				<div class="nav-links">
+					<ul>
+						<a href="index.html"><li  id="Home" >Home</li></a>
+					
+						<a href="#"><li>Tracking</li></a>
+					</ul>
+					
+				</div>
+			   
+		
+		</div>
+	</div>
+		<div id="square1"></div>
+		
+	
+	
+	<b class="subtitulo" id="subtitulo">Valores de última posición:</b>
+	<b class="latitude" id="latitude">Latitud:</b>
+	<b class="longitude" id="longitude">Longitud:</b>
+	<b class="timestep" id="time"></b>
+
+	<button class="boton" onclick="Centrado()"></button>
+
+	<div class="functions">
+		<div id="square2"></div>
+		<h3 class="Title">Seleccione su rango de interés para trazar una ruta histórica:</h3>
+		
+		
+		<form action="" class="form" onsubmit="return comparar();">
+			<div class="form">
+				<label class="date1"> Comienzo:</label>
+				<input class="date11" id="date01" type="datetime-local" required pattern="yyyy-MM-dd-HH:mm:ss" /><br>
+	
+				<label class="date2"> Final:</label>
+				<input class="date22" id="date02" required type="datetime-local" /><br>
+	
+				
+				
+				
+				<p  class="alerta" id="alerta"></p>
+			</div>
+
+		</form>
+		<button class="boton1" onclick="trazar()">Mostrar Historico</button>
+		<button class="boton2" onclick="limpiar()">No mostrar Historico</button>
+	<div id="map"> 	</div>
+	
+	
+
+	
+	<script src="https://maps.googleapis.com/maps/api/js?key=&callback=iniciarMap"></script>
+
+</body>
+
+</html>
