@@ -34,7 +34,7 @@ socket.on('message', (msg, rinfo) => {
 	msg = msg.toString().split(',');
 	time = msg[2]
 	//time[0]:año - time[1]:mes - time[2]:dia - time[3]:hora - time[4]:minuto - time[5]:segundo
-	msg = { latitude: parseFloat(msg[0]), longitude: parseFloat(msg[1]), time };
+	msg = { latitude: parseFloat(msg[0]), longitude: parseFloat(msg[1]), time: parseFloat(time) };
 	let sql = 'INSERT INTO new_table SET ?';
 	let query = database.query(sql, msg, (err, result) => {
 		if (err) throw err;
