@@ -9,9 +9,9 @@ console.log(process.env)
 
 const database = mysql.createConnection({
 	host: process.env.HO,
-	user: 'admin',
+	user: process.env.A,
 	password: process.env.PA,
-	database: 'Proyecto'
+	database: process.env.B
 	//el endpoint y la contraseña de la base de datos se añaden en un archivo .env
 });
 
@@ -31,16 +31,16 @@ socket.on('error', (err) => {
 });
 
 socket.on('message', (msg, rinfo) => {
-	console.log(`El servidor recibió: ${msg} de ${rinfo.address}:${rinfo.port}`);
 	msg = msg.toString().split(',');
-	time = msg[2].split('-');
+	time = msg[2]
+	console.log(msg)
+	console.log(time)
 	//time[0]:año - time[1]:mes - time[2]:dia - time[3]:hora - time[4]:minuto - time[5]:segundo
-	msg = { latitude: parseFloat(msg[0]), longitude: parseFloat(msg[1]), año: time[0], mes: time[1], dia: time[2], hora: time[3], minuto: time[4], segundo: time[5] };
+	msg = { latitude: parseFloat(msg[0]), longitude: parseFloat(msg[1]), time };
 	let sql = 'INSERT INTO new_table SET ?';
 	let query = database.query(sql, msg, (err, result) => {
 		if (err) throw err;
 	});
-	console.log(msg);
 	ubi = msg;
 
 });
