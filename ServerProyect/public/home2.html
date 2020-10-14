@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<script src="js/app.js"></script>
-	<script src="js/geolocalizacion.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="css/style.css">
 </head>
@@ -44,7 +43,7 @@
 		<h3 class="Title">Seleccione su rango de interés para trazar una ruta histórica:</h3>
 		
 		
-		<form action="" class="form" onsubmit="return comparar();">
+		<form action="" class="form" >
 			<div class="form">
 				<label class="date1"> Comienzo:</label>
 				<input class="date11" id="date01" type="datetime-local" required pattern="yyyy-MM-dd-HH:mm:ss" /><br>
@@ -54,12 +53,11 @@
 	
 				
 				
-				
 				<p  class="alerta" id="alerta"></p>
 			</div>
 
 		</form>
-		<button class="boton1" onclick="trazar()">Mostrar Historico</button>
+		<button class="boton1" onclick="comparar()">Mostrar Historico</button>
 		<button class="boton2" onclick="limpiar()">No mostrar Historico</button>
 	<div id="map"> 	</div>
 	
