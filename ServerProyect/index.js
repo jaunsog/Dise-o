@@ -24,14 +24,6 @@ database.connect((err) => {
 
 });
 
-app.get('/baseDeDatos', function (req, res) {
-	
-	let sql = 'SELECT * FROM new_table'
-	let query = database.query(sql, (err, result) => {
-		if (err) throw err;
-		res.end(JSON.stringify(result))
-	})
-})
 
 socket.on('error', (err) => {
 	console.log(`server error:\n${err.stack}`);
@@ -63,16 +55,27 @@ app.get('/', function (req, res) {
 });
 
 app.get('/ruta', function (req, res) {
-	console.log(ubi);
+	//console.log(ubi);
 	res.json(ubi);
 });
 
 app.post('/rango', function (req, res){
-	console.log('hola')
+	//console.log('hola')
 	console.log(req.body)
 	let sql= `SELECT * FROM new_table WHERE time BETWEEN ${req.body.f} and ${req.body.l}`;
 	let query = database.query(sql, (err, result)=>{
 		if (err) throw err;
 		res.end(JSON.stringify(result));
+		
+		
 	});
+
 });
+app.get('/baseDeDatos', function (req, res) {
+	
+	let sql = 'SELECT * FROM new_table'
+	let query = database.query(sql, (err, result) => {
+		if (err) throw err;
+		res.end(JSON.stringify(result))
+	})
+})
