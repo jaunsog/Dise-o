@@ -283,7 +283,7 @@
 			opacity: 0.9;
 			position: absolute;
 			width: 22%;
-			height: 12%;
+			height: 18%;
 			background-blend-mode: overlay;
 			background: rgb(130, 161, 177);
 			}
@@ -338,14 +338,14 @@
   -webkit-appearance: none;
   appearance: none;
   width: 25px;
-  height: 25px;
+  height: 15px;
   background: #4CAF50;
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
   width: 25px;
-  height: 25px;
+  height: 15px;
   background: #4CAF50;
   cursor: pointer;
 }
