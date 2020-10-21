@@ -11,6 +11,11 @@
 </head>
 
 <body>
+	
+	<div id="sliderAmount">
+		<input id="slide" type="range" min="1" max="100" step="1" value="10" onchange="updateSlider(this.value)">
+		<a id="result"><li  id="Home" ></li></a>
+	</div>
 	<div class="hero">
 		<div class= "nav-bar">
 			<div class="nav-logo">
@@ -27,7 +32,7 @@
 		
 		</div>
 	</div>
-		<div id="square1"></div>
+	<div id="square1"></div>
 		
 	
 	
@@ -37,9 +42,12 @@
 	<b class="timestep" id="time"></b>
 
 	<button class="boton" onclick="Centrado()"></button>
-
+	
+	
+	
 	<div class="functions">
-		<div id="square2"></div>
+		<div id="square2"></div>	
+		
 		<h3 class="Title">Seleccione su rango de interés para trazar una ruta histórica:</h3>
 		
 		
@@ -50,16 +58,19 @@
 	
 				<label class="date2"> Final:</label>
 				<input class="date22" id="date02" required type="datetime-local" /><br>
-	
-				
-				
 				<p  class="alerta" id="alerta"></p>
+			<input class="sliderr" type="range" min="1" max="100" value="50">
 			</div>
-
+			
 		</form>
 		<button class="boton1" onclick="comparar()">Mostrar Historico</button>
 		<button class="boton2" onclick="limpiar()">No mostrar Historico</button>
+		
+    	
 	<div id="map"> 	</div>
+		
+	
+	</div>
 	
 	
 
@@ -67,5 +78,7 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=&callback=iniciarMap"></script>
 
 </body>
-
+<script>
+	
+</script>
 </html>

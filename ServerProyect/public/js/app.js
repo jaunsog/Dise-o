@@ -1,26 +1,26 @@
 
-function comparar(){
-	
-	var fecha_inicio = document.getElementById("date01").value;
-    var fecha_final = document.getElementById("date02").value;
-    const parrafo=document.getElementById("alerta")
-    console.log(fecha_inicio);
-    
-	if (fecha_inicio > fecha_final){
-        alert("Ingrese una rango de fechas válido")
-        
-        return false
+function comparar() {
 
-	}else if (fecha_inicio=="" && fecha_final=="") { 
-        alert("Rellene las fechas de inicio y fin");
-    }
-    else if (fecha_inicio=="" || fecha_final=="" ) { 
-    alert("Rellene la fecha faltante");
-    }
-    
-else{
-    trazar();
-}
+	var fecha_inicio = document.getElementById("date01").value;
+	var fecha_final = document.getElementById("date02").value;
+	const parrafo = document.getElementById("alerta")
+	console.log(fecha_inicio);
+
+	if (fecha_inicio > fecha_final) {
+		alert("Ingrese una rango de fechas válido")
+
+		return false
+
+	} else if (fecha_inicio == "" && fecha_final == "") {
+		alert("Rellene las fechas de inicio y fin");
+	}
+	else if (fecha_inicio == "" || fecha_final == "") {
+		alert("Rellene la fecha faltante");
+	}
+
+	else {
+		trazar();
+	}
 }
 
 
@@ -64,7 +64,6 @@ function iniciarMap() {
 		map: map,
 		icon: 'truck.ico',
 		label: 2,
-
 	});
 	pathLive = new google.maps.Polyline({
 		path: polylineLive,
@@ -74,6 +73,7 @@ function iniciarMap() {
 		strokeWeight: 2
 	});
 	pathLive.setMap(map);
+	
 	markers.push(marker);
 	movimiento();
 }
@@ -89,7 +89,7 @@ async function Centrado() {
 async function refresh() {
 	const response = await fetch('/ruta', { method: 'GET' });
 	const jsons = await response.json();
-	console.log(jsons);
+	console.log("hola" + jsons);
 	return jsons;
 }
 async function movimiento() {
@@ -112,10 +112,10 @@ async function movimiento() {
 }
 
 async function texto(ubic) {
-	var ñ=ubic.latitude.toString().split('');
-	var ññ=ubic.longitude.toString().split('');
-	document.getElementById('latitude').innerHTML = "Latitud: " + ñ[0]+ñ[1]+ñ[2]+ñ[3]+ñ[4]+ñ[5];
-	document.getElementById('longitude').innerHTML = "Longitud: " + ññ[0]+ññ[1]+ññ[2]+ññ[3]+ññ[4]+ññ[5];
+	var ñ = ubic.latitude.toString().split('');
+	var ññ = ubic.longitude.toString().split('');
+	document.getElementById('latitude').innerHTML = "Latitud: " + ñ[0] + ñ[1] + ñ[2] + ñ[3] + ñ[4] + ñ[5];
+	document.getElementById('longitude').innerHTML = "Longitud: " + ññ[0] + ññ[1] + ññ[2] + ññ[3] + ññ[4] + ññ[5];
 	spltime = ubic.time.toString().split('');
 	console.log(spltime)
 	año = spltime[0] + spltime[1] + spltime[2] + spltime[3];
@@ -134,7 +134,7 @@ async function trazar() {
 	if (o == 1) {
 		path1.setMap(null);
 	}
-	o=1;
+	o = 1;
 	var d1 = document.getElementById("date01").value;
 	d11 = d1.toString().split('-');
 	var d1array = [];
@@ -162,13 +162,13 @@ async function trazar() {
 	console.log(parseInt(totald1));
 	console.log(totald2);
 	polylinePlanCoordinates = [];
-	total = { f: parseInt(totald1), l:parseInt(totald2)};
-	const options ={
+	total = { f: parseInt(totald1), l: parseInt(totald2) };
+	const options = {
 		method: "POST",
 		body: JSON.stringify(total),
 		headers: {
-            "Content-Type": "application/json"
-        }
+			"Content-Type": "application/json"
+		}
 	}
 	console.log(options.body.f)
 	console.log(options.body.l)
@@ -181,7 +181,7 @@ async function trazar() {
 
 	// const response = await fetch('/baseDeDatos', { method: 'GET' });
 	// const data = await response.json();
-	
+
 	// });
 	path1 = new google.maps.Polyline({
 		path: polylinePlanCoordinates,
@@ -192,17 +192,41 @@ async function trazar() {
 	});
 	console.log(polylinePlanCoordinates);
 	path1.setMap(map)
-	
+
 }
 
 
 
 function limpiar() {
 	path1.setMap(null);
-	o=0;
+	o = 0;
 }
 
+movmarker = new google.maps.Marker({
+	position: { lat: 0, lng: 0 },
+	map: map,
+	icon: 'pin.png',
+	label: 2,
+});
+markers[1].push(movmarker);
+mySlider = document.getElementById("slid");
+mySlider.min = `${0}`;
+mySlider.max = `${polylinePlanCoordinates.length - 1}`;
+mySlider.oninput = function () {
+	var index = parseInt(this.value);
+	const sdate = new Date(timespan[index]);
+	markers[1].setLatLng(polylinePlanCoordinates[index]).addTo(map);
+// 	date0 = document.getElementById("slidervalue0");
+// 	if (sliderdate.getMinutes() < 10) {
+// 		date0.innerHTML = sliderdate.getDate() + "/" + (sliderdate.getMonth() + 1) + "/" + sliderdate.getFullYear() + " " + sliderdate.getHours() + ":0" + sliderdate.getMinutes();
+// 	} else {
+// 		date0.innerHTML = sliderdate.getDate() + "/" + (sliderdate.getMonth() + 1) + "/" + sliderdate.getFullYear() + " " + sliderdate.getHours() + ":" + sliderdate.getMinutes();
+// }
+}
+$(document.getElementById("slidercontainer")).slideToggle("fast");
 
 
-
-
+function updateSlider(slideAmount) {
+	var sliderDiv = document.getElementById("sliderAmount");
+	sliderDiv.innerHTML = slideAmount;
+}
