@@ -3,29 +3,28 @@
 			margin:0;
 			padding:0;
 			font-family:sans-serif
+
 		}
 		
 		.Title {
 			position: absolute;
 			opacity: 0.8;
-			top: 50%;
+			top: 40%;
 			left: 1%;
 			color: #FFFFFF;
 			z-index: 10;
 			margin: 0;
 			padding: 0;
-			height: 20%;
+			height: 5%;
 			width: 20%;
-			
-			font-size: 2.5vh;
+			font-size: 100%;
 		}
 
-		
 
 		.date2 {
 			position: absolute;
 			opacity: 0.8;
-			top: 67%;
+			top: 57%;
 			left: 1%;
 			color: #FFFFFF;
 			z-index: 10;
@@ -35,28 +34,30 @@
 			width: 12%;
 			height: 6%;
 			width: 18%;
-			font-size: 2.5vh;
+			font-size: 100%;
 		}
 
 		.date22 {
 			position: absolute;
 			opacity: 0.6;
-			top: 70%;
+			top: 60%;
 			left: 1%;
 			color: #000000;
 			z-index: 10;
 			margin: 0;
 			padding: 0;
 			padding: 0;
-			font-size: 2vh;
-			height: 4vh;
-			width: 28vh;
+			font-size: 100%;
+			height: 4%;
+			width: 18%;
 		}
+
+
 
 		.date1 {
 			position: absolute;
 			opacity: 0.8;
-			top: 58%;
+			top: 48%;
 			left: 1%;
 			color: #FFFFFF;
 			z-index: 10;
@@ -64,28 +65,28 @@
 			padding: 0;
 			height: 8%;
 			width: 12%;
-			font-size: 2.5vh;
+			font-size: 100%;
 				}
 
 		.date11 {
 			position: absolute;
 			opacity: 0.6;
-			top: 62%;
+			top: 52%;
 			left: 1%;
 			color: #000000;
 			z-index: 10;
 			margin: 0;
 			padding: 0;
-			font-size: 2vh;
-			height: 4vh;
-			width: 28vh;
+			font-size: 100%;
+			height: 4%;
+			width: 18%;
 		}
 
 		.boton1 {
 
 			position: absolute;
 			opacity: 0.8;
-			top: 77%;
+			top: 67%;
 			left: 1%;
 			color: #000000;
 			z-index: 10;
@@ -93,14 +94,14 @@
 			padding: 0;
 			height: 6%;
 			width: 18%;
-			font-size: 2.5vh;
+			font-size: 100%;
 		}
 
 		.boton2 {
 
 			position: absolute;
 			opacity: 0.8;
-			top: 85%;
+			top: 75%;
 			left: 1%;
 			color: #000000;
 			z-index: 10;
@@ -108,7 +109,7 @@
 			padding: 0;
 			height: 6%;
 			width: 18%;
-			font-size: 2.5vh;
+			font-size: 100%;
 		}
 
 		.boton {
@@ -129,8 +130,8 @@
 
 		h2 {
 			position: absolute;
-			top: 20vh;
-			left: 1vh;
+			top: 10%;
+			left: 1%;
 			color: #e9f2eb;
 			z-index: 10;
 			margin: 0;
@@ -139,34 +140,34 @@
 
 		b {
 			
-			font-size: 2.2vh;
+			font-size: 80%;
 			position: absolute;
-			top: 15vh;
-			left: 1vh;
-			color: hsl(157, 70%, 84%);
+			top: 9%;
+			left: 1%;
+			color: hsla(0, 0%, 100%, 0.671);
 			z-index: 10;
 			margin: 0;
 			padding: 0;
 		}
-
 		.subtitulo {
-			top: 16vh;
-			font-size: 2.2vh;
+			top: 12%;
+			font-size: 90%;
 		}
 
 		.latitude {
-			top: 20vh;
-			left:14vh;
+			top: 17%;
+			left:7%;
 		}
 
 		.longitude {
-			top: 23vh;
-			left:14vh;
+			top: 20%;
+			left:7%;
 		}
 
 		.timestep {
-			top: 29.5vh;
-			left:5vh;
+			top: 25%;
+			left:3%;
+			font-size: 70%;
 		}
 
 		h1 {
@@ -176,22 +177,23 @@
 			color: #000000;
 			z-index: 20;
 			margin: 0;
-			padding: 10;
+			padding: 5%;
 		}
 
 		#map {
+			
 			position: absolute;
 			top: 15%;
 			left: 23%;
 			z-index: 5;
 			height: 78% ;
 			width: 74%;
+			
 
 		}
 		
 		.hero{
-			
-			height: 100vh;
+			height: 100%;
 			background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("fondo2.png");
 			background-position: center;
 			background-size: cover;
@@ -200,14 +202,14 @@
 		}
 		.nav-bar{
 			display:flex;
-			padding:3.6vh 73vh;
+			padding:2% 36%;
 			position: absolute;
 			z-index: 6;
 		}
 		
 		.nav-links{
-			width: 100vh;
-			flex:1vh;
+			width: 100%;
+			flex:1%;
 			
 		}
 		.nav-links ul{
@@ -218,7 +220,7 @@
 		.nav-links ul li{
 			list-style: cross-fade();
 			display:inline-block;
-			padding:0 2.8vh;
+			padding:0 2vh;
 			
 		}
 		.nav-links ul a{
@@ -239,45 +241,114 @@
 			width:100%;    
 		}
 		
-
-
+		html, body {
+			height: 100%;
+			width: 100%;
+			overflow-x: hidden;
+			overflow-y:hidden;
+			margin:0; 
+		}
 		
+
 		#square1 {
 			display: block;
+			
 			background-image:url("truckpos.png");
 			background-position: center;
 			background-size: cover;
-			width: 46vh;
-			height: 40vh;
-			top:8vh;
+			width: 23%;
+			height: 30%;
+			top:8%;
 			position: absolute;;
 			}
+
 		#square2 { 
 			display: block;
 			left:0.5%;
-			top: 45%;
+			top: 39%;
 			opacity: 0.6;
 			position: absolute;
-			width: 40vh;
-			height: 50vh;
+			width: 22%;
+			height: 43%;
 			background-blend-mode: overlay;
 			background: rgb(5, 214, 144);
 			}
 
+/* esta modificacion corresponde a los estilos para el slider
+	*/
+			#square3 { 
+			display: block;
+			left:0.5%;
+			top: 83%;
+			opacity: 0.9;
+			position: absolute;
+			width: 22%;
+			height: 18%;
+			background-blend-mode: overlay;
+			background: rgb(130, 161, 177);
+			}
+	
 
-			@media(max-width: 700px){
-				.bannet-title{
-					margin:80 px 40 px}
-				.bannet-title{
-					left:25%
-				}
-				.nav-bar{
-					padding:10px 30 px;
-				}
-				.bannet-title h1{
-					font-size: 3.5vh;
-				}
-				}
+			.slider1 {
+				position: absolute;
+				opacity: 0.8;
+				top: 85%;
+				left: 2%;
+				color: #FFFFFF;
+				z-index: 10;
+				margin: 0;
+				padding: 0;
+				padding: 0;
+				font-size: 100%;
+				height: 4%;
+				width: 90%;
+
+			}
+
+
+.slidecontainer {
+
+  width: 20%;
+    background: #d3d3d3;
+	font-size: 70%;
+
+}
+
+
+
+
+.slider {
+  -webkit-appearance: none;
+  left: 2%;
+  	top: 70%;
+  width: 22%;
+  height: 12px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 15px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 15px;
+  background: #4CAF50;
+  cursor: pointer;
+}
 				
 				
 		

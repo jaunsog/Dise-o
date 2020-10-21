@@ -195,10 +195,10 @@ async function trazar() {
 		allFechas.push(parseInt(object.time) );
 	});
 	var icon = {
-		url: 'pin.png', // url
-		scaledSize: new google.maps.Size(50, 50), // scaled size
-		origin: new google.maps.Point(0,0), // origin
-		anchor: new google.maps.Point(0, 0) // anchor
+		url: 'camion.png', // url
+		scaledSize: new google.maps.Size(40,40), // scaled size
+		origin: new google.maps.Point(5,5), // origin
+		anchor: new google.maps.Point(9,9) // anchor
 	};
     movmarker = new google.maps.Marker({
 		position: { lat: 0, lng: 0 },
