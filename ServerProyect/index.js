@@ -24,6 +24,14 @@ database.connect((err) => {
 
 });
 
+app.get('/baseDeDatos', function (req, res) {
+	
+	let sql = 'SELECT * FROM new_table'
+	let query = database.query(sql, (err, result) => {
+		if (err) throw err;
+		res.end(JSON.stringify(result))
+	})
+})
 
 socket.on('error', (err) => {
 	console.log(`server error:\n${err.stack}`);
@@ -68,11 +76,3 @@ app.post('/rango', function (req, res){
 		res.end(JSON.stringify(result));
 	});
 });
-app.get('/baseDeDatos', function (req, res) {
-	
-	let sql = 'SELECT * FROM new_table'
-	let query = database.query(sql, (err, result) => {
-		if (err) throw err;
-		res.end(JSON.stringify(result))
-	})
-})

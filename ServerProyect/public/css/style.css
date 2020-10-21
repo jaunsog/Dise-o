@@ -275,7 +275,17 @@
 			background-blend-mode: overlay;
 			background: rgb(5, 214, 144);
 			}
-
+			#sliderAmount{
+				position: absolute;
+				left:0.5%;
+				top: 45%;
+				width: 100vh;
+			  }
+			  #slide{
+				z-index: 20;
+							
+			  }
+	
 
 				
 				

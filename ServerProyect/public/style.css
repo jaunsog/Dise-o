@@ -4,7 +4,17 @@
 			padding:0;
 			font-family:sans-serif
 		}
-		
+		#sliderAmount{
+			position: absolute;
+			left:0.5%;
+			top: 45%;
+			width: 100vh;
+  		}
+  		#slide{
+			z-index: 20;
+						
+  		}
+
 		.Title {
 			position: absolute;
 			opacity: 0.8;
@@ -240,8 +250,6 @@
 		}
 		
 
-
-		
 		#square1 {
 			display: block;
 			background-image:url("truckpos.png");
@@ -263,8 +271,8 @@
 			background-blend-mode: overlay;
 			background: rgb(5, 214, 144);
 			}
-
-
+			
+		
 			@media(max-width: 700px){
 				.bannet-title{
 					margin:80 px 40 px}
