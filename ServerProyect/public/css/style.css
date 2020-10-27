@@ -5,11 +5,46 @@
 			font-family:sans-serif
 
 		}
+		.cars{
+			position: absolute;
+			top: 12%;
+			left: 1%;
+			color: hsla(0, 0%, 100%, 0.671);
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			width: 14%;
+		}
+		.subtitulo {
+			position: relative;
+			font-size: 90%;
+		}
+		.car1{
+			background-color: rgb(255, 217, 0);
+			top: 27%;
+			left:7%;
+			width:100%;
+			transition: 0.3s;
+		}
+		.car1:hover {
+ 		background-color: rgb(255, 255, 255);
+		}
 		
+		.car2{
+			background-color:  rgb(255, 217, 0);
+			top: 20%;
+			left:7%;
+			width:100%;
+			transition: 0.3s;
+		}
+		.car2:hover {
+			background-color: rgb(255, 255, 255);
+		   }
+		   
 		.Title {
 			position: absolute;
 			opacity: 0.8;
-			top: 40%;
+			top: 38%;
 			left: 1%;
 			color: #FFFFFF;
 			z-index: 10;
@@ -24,7 +59,7 @@
 		.date2 {
 			position: absolute;
 			opacity: 0.8;
-			top: 57%;
+			top: 53%;
 			left: 1%;
 			color: #FFFFFF;
 			z-index: 10;
@@ -40,7 +75,7 @@
 		.date22 {
 			position: absolute;
 			opacity: 0.6;
-			top: 60%;
+			top: 56%;
 			left: 1%;
 			color: #000000;
 			z-index: 10;
@@ -52,12 +87,10 @@
 			width: 18%;
 		}
 
-
-
 		.date1 {
 			position: absolute;
 			opacity: 0.8;
-			top: 48%;
+			top: 44%;
 			left: 1%;
 			color: #FFFFFF;
 			z-index: 10;
@@ -71,7 +104,7 @@
 		.date11 {
 			position: absolute;
 			opacity: 0.6;
-			top: 52%;
+			top: 48%;
 			left: 1%;
 			color: #000000;
 			z-index: 10;
@@ -86,13 +119,13 @@
 
 			position: absolute;
 			opacity: 0.8;
-			top: 67%;
+			top: 62%;
 			left: 1%;
 			color: #000000;
 			z-index: 10;
 			margin: 0;
 			padding: 0;
-			height: 6%;
+			height: 4%;
 			width: 18%;
 			font-size: 100%;
 		}
@@ -101,13 +134,13 @@
 
 			position: absolute;
 			opacity: 0.8;
-			top: 75%;
+			top: 67%;
 			left: 1%;
 			color: #000000;
 			z-index: 10;
 			margin: 0;
 			padding: 0;
-			height: 6%;
+			height: 4%;
 			width: 18%;
 			font-size: 100%;
 		}
@@ -137,11 +170,10 @@
 			margin: 0;
 			padding: 0;
 		}
-
+		
+		
 		b {
-			
 			font-size: 80%;
-			position: absolute;
 			top: 9%;
 			left: 1%;
 			color: hsla(0, 0%, 100%, 0.671);
@@ -149,20 +181,7 @@
 			margin: 0;
 			padding: 0;
 		}
-		.subtitulo {
-			top: 12%;
-			font-size: 90%;
-		}
-
-		.latitude {
-			top: 17%;
-			left:7%;
-		}
-
-		.longitude {
-			top: 20%;
-			left:7%;
-		}
+		
 
 		.timestep {
 			top: 25%;
@@ -179,16 +198,17 @@
 			margin: 0;
 			padding: 5%;
 		}
-
+		.slide{
+			top:4%;
+			overflow-y: visible;
+		}
 		#map {
-			
 			position: absolute;
 			top: 15%;
 			left: 23%;
 			z-index: 5;
 			height: 78% ;
-			width: 74%;
-			
+			width: 74%;			
 
 		}
 		
@@ -253,7 +273,7 @@
 		#square1 {
 			display: block;
 			
-			background-image:url("truckpos.png");
+			background-image:url("camion.png");
 			background-position: center;
 			background-size: cover;
 			width: 23%;
@@ -265,35 +285,23 @@
 		#square2 { 
 			display: block;
 			left:0.5%;
-			top: 39%;
+			top: 37%;
 			opacity: 0.6;
 			position: absolute;
 			width: 22%;
-			height: 43%;
+			height: 62%;
 			background-blend-mode: overlay;
-			background: rgb(5, 214, 144);
+			background: rgb(214, 5, 5);
 			}
 
 /* esta modificacion corresponde a los estilos para el slider
-	*/
-			#square3 { 
-			display: block;
-			left:0.5%;
-			top: 83%;
-			opacity: 0.9;
-			position: absolute;
-			width: 22%;
-			height: 12%;
-			background-blend-mode: overlay;
-			background: rgb(130, 161, 177);
-			}
-	
-
+	*/	
 			.slider1 {
 				position: absolute;
 				opacity: 0.8;
-				top: 85%;
+				top: 73%;
 				left: 2%;
+				
 				color: #FFFFFF;
 				z-index: 10;
 				margin: 0;
@@ -307,22 +315,16 @@
 
 
 .slidecontainer {
-
-  width: 20%;
+	position: relative;
+  	width: 20%;
     background: #d3d3d3;
 	font-size: 70%;
 
 }
 
-
-
-
 .slider {
   -webkit-appearance: none;
-  left: 2%;
-  	top: 70%;
-  width: 22%;
-  height: 12px;
+  width: 20%;
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
@@ -338,16 +340,51 @@
   -webkit-appearance: none;
   appearance: none;
   width: 25px;
-  height: 25px;
+  height: 15px;
   background: #4CAF50;
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
   width: 25px;
-  height: 25px;
-  background: #4CAF50;
+  height: 15px;
+  background: #af4c4c;
   cursor: pointer;
 }
 
-			
+.timestep1{
+	width:100%;
+	border:none;
+	background: none;
+	color: white;
+	transition: 0.3ms;
+}
+.timestep1:hover {
+	border-left: solid;
+	border-right: solid;
+	/* Start the shake animation and make the animation last for 0.5 seconds */
+	
+	animation: shake 0.5s;
+  
+	/* When the animation is finished, start again */
+	animation-iteration-count: infinite;
+  }
+  
+  @keyframes shake {
+	0% { transform: translate(0.25%, 0.25%) rotate(0deg); }
+	10% { transform: translate(-0.5%, -0.5%) rotate(-1deg); }
+	20% { transform: translate(-0.5%, 0%) rotate(1deg); }
+	30% { transform: translate(0.75%, 0.5%) rotate(0deg); }
+	40% { transform: translate(0.25%, -0.25%) rotate(1deg); }
+	50% { transform: translate(-0.25%, 0.5%) rotate(-1deg); }
+	60% { transform: translate(-0.75%, 0.25%) rotate(0deg); }
+	70% { transform: translate(0.75%, 0.25%) rotate(-1deg); }
+	80% { transform: translate(-0.25%, -0.25%) rotate(1deg); }
+	90% { transform: translate(0.25%, 0.5%) rotate(0deg); }
+	100% { transform: translate(0.25%, -0.5%) rotate(-1deg); }
+  }
+/* .timestep1:hover {
+	border-right: 3px ridge #000000;
+	border-left: 3px ridge #000000;
+	background: rgba(0,0,0,0);
+} */
