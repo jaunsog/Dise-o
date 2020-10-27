@@ -311,11 +311,13 @@ async function trazar() {
 		content: contentString1,
 
 	});
+
 	movmarker1.addListener("click", () => {
 		infowindow0.open(map, movmarker1);
 	});
 	const movmarker2 = new google.maps.Marker({
 		position: null,                     ////ESTOOOOOOOOOO
+
 		map: map,
 		icon: icon,
 	});

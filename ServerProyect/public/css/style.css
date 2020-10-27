@@ -295,7 +295,8 @@
 			}
 
 /* esta modificacion corresponde a los estilos para el slider
-	*/	
+
+
 			.slider1 {
 				position: absolute;
 				opacity: 0.8;
@@ -348,7 +349,9 @@
 .slider::-moz-range-thumb {
   width: 25px;
   height: 15px;
+
   background: #af4c4c;
+
   cursor: pointer;
 }
 
