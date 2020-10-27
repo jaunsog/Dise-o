@@ -34,7 +34,7 @@ socket.on('message', (msg, rinfo) => {
 	msg = msg.toString().split(',');
 	time = msg[2]
 	//time[0]:año - time[1]:mes - time[2]:dia - time[3]:hora - time[4]:minuto - time[5]:segundo
-	msg = { latitude: parseFloat(msg[0]), longitude: parseFloat(msg[1]), time: parseFloat(time) };
+	msg = { latitude: parseFloat(msg[0]), longitude: parseFloat(msg[1]), time: parseFloat(time), car:msg[3] };
 	let sql = 'INSERT INTO new_table SET ?';
 	let query = database.query(sql, msg, (err, result) => {
 		if (err) throw err;
@@ -61,13 +61,11 @@ app.get('/ruta', function (req, res) {
 
 app.post('/rango', function (req, res){
 	//console.log('hola')
-	console.log(req.body)
-	let sql= `SELECT * FROM new_table WHERE time BETWEEN ${req.body.f} and ${req.body.l}`;
+	console.log(req.body.c)
+	let sql= `SELECT * FROM new_table  WHERE (car = ${req.body.c}) AND (time BETWEEN ${req.body.f} and ${req.body.l})`;
 	let query = database.query(sql, (err, result)=>{
 		if (err) throw err;
-		res.end(JSON.stringify(result));
-		
-		
+		res.end(JSON.stringify(result));	
 	});
 
 });
