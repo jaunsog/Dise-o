@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
 	<script type="text/javascript" src="js/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="js/miefecto.js"></script>
 	<meta charset="UTF-8" />
@@ -13,86 +13,81 @@
 </head>
 
 <body>
-	<div class="hero">
-		<div class= "nav-bar">
-			<div class="nav-logo">
-			</div>
-				<div class="nav-links">
-					<ul>
-						<a href="index.html"><li  id="Home" >Inicio</li></a>
-					
-						<a href="#"><li>Monitoreo</li></a>
+    <div id="total"></div>
+    <div class="hero">
+        <div class="nav-bar">
+            <div class="nav-logo">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <a href="index.html">
+                        <li id="Home">Inicio</li>
+                    </a>
+                    <a href="#">
+                        <li>Monitoreo</li>
+                    </a>
+                </ul>
 
-					</ul>
-					
-				</div>
-			   
-		
-		</div>
-	</div>
-		<div id="square1"></div>
-		
-	
-	
-	<b class="subtitulo" id="subtitulo">Valores de última posición:</b>
-	<b class="latitude" id="latitude">Latitud:</b>
-	<b class="longitude" id="longitude">Longitud:</b>
-	<b class="timestep" id="time">Tiempo:</b>
-
-	<button class="boton" onclick="Centrado()"></button>
-
-	<div class="functions">
-		<div id="square2"></div>
-		<h3 class="Title">Seleccione su rango de interés para trazar una ruta histórica:</h3>
-		
-		
-		<form action="" class="form" >
-			
-				<label class="date1"> Comienzo:</label>
-				<input class="date11" id="date01" type="datetime-local" required pattern="yyyy-MM-dd-HH:mm:ss" /><br>
-	
-				<label class="date2"> Final:</label>
-				<input class="date22" id="date02" required type="datetime-local" /><br>
-				<p  class="alerta" id="alerta"></p>
-			
-		</form>
-		<button class="boton1"  onclick="comparar()">Mostrar Histórico</button>
-		<button class="boton2" onclick="limpiar()">No mostrar Histórico</button>
-	
-<div id="map"> 	</div>
-
-	<!--Esta es la division inferior del div que incluye el slider-->
-<div id="square3"></div>
-<div class="slider1">
-
-	  
-	  
-	  <p style="color:rgb(0, 51, 102);"><strong>Use el slider para visualizar los<br>
-		datos históricos</p></strong> 
-	  <p>Fecha: <span id="valor2" ></span></p>
-	  <p>posicion: <span id="valor3" ></span></p>
-	  <input type="range"   value="0" class="slider" id="myRange">
-	  
-	 
- </div>
+            </div>
 
 
-<script>
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-	var valorF = document.getElementById("valor2");
-    output.innerHTML = slider.value;
-	slider.max = valorF.value;
-    slider.oninput = function() {
-    output.innerHTML = this.value;
+        </div>
+    </div>
 
-    }
-</script>
+    <div id="square2">
+        <!--Bloque Último Visto y Selección de Vehículo-->
+        <div class="car">
+        <b class="subtitulo" id="title">Selector de vehículo:</b>
+        <button class="car1" id="cr1" onclick="c1()">camion1:inactivo</button>
+        <button class="timestep1" id="timec1" onclick="center1()">Visto(centrar):</button>
+        <button class="car2" id="cr2" onclick="c2()">camion2:inactivo</button>
+        <button class="timestep1" id="timec2" onclick="center2()">Visto(centrar):</button>
+        </div>
+        <!--Bloque Históricos-->
+        <div class="historicos">
+        <h3 class="Title">Seleccione su rango de interés para trazar una ruta histórica:</h3>
+        <form action="" class="form">
+        <label class="date1"> Comienzo:</label>
+        <input class="date11" id="date01" type="datetime-local" required pattern="yyyy-MM-dd-HH:mm:ss" /><br>
+        <label class="date2"> Final:</label>
+        <input class="date22" id="date02" required type="datetime-local" min="date11"/><br>
+        <p class="alerta" id="alerta"></p>
+        </form>
+        <button class="boton1" onclick="comparar()">Mostrar Histórico</button>
+        <button class="boton2" onclick="limpiar()">No mostrar Histórico</button>
+        </div>
+        <!--Bloque Datos dado Históricos-->
+        <div class="rangos">
+        <b><strong>Use el slider para visualizar los datos históricos</strong></b>
+        <p>Fecha1: <span id="valor2"></span></p>
+        <p>posicion1: <span id="valor3"></span></p>
+        <input type="range" value="0" class="slider" id="myRange1">
+        <p>Fecha2: <span id="valor22"></span></p>
+        <p>posicion2: <span id="valor23"></span></p>
+        <input type="range" value="0" class="slider" id="myRange2">
+        </div>
+    </div>
 
-<!--finaliza las modificacions-->
+    <div id="map"> </div>
+    </div>
+		<script>
+			var slider = document.getElementById("myRange");
+			var output = document.getElementById("demo");
+			var valorF = document.getElementById("valor2");
+			output.innerHTML = slider.value;
+			slider.max = valorF.value;
+			slider.oninput = function () {
+				output.innerHTML = this.value;
+
+			}
+		</script>
+
+		<!--finaliza las modificacions-->
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZdwg2ZrngBJuPev2Bjn-9ROu0S6Belhg&callback=iniciarMap"></script>
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZdwg2ZrngBJuPev2Bjn-9ROu0S6Belhg&callback=iniciarMap"></script>
+
 </body>
 
 </html>

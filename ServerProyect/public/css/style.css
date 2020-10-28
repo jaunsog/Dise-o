@@ -5,205 +5,31 @@
 			font-family:sans-serif
 
 		}
-		
-		.Title {
-			position: absolute;
-			opacity: 0.8;
-			top: 40%;
-			left: 1%;
-			color: #FFFFFF;
-			z-index: 10;
-			margin: 0;
-			padding: 0;
-			height: 5%;
-			width: 20%;
-			font-size: 100%;
-		}
-
-
-		.date2 {
-			position: absolute;
-			opacity: 0.8;
-			top: 57%;
-			left: 1%;
-			color: #FFFFFF;
-			z-index: 10;
-			margin: 0;
-			padding: 0;
-			height: 8%;
-			width: 12%;
-			height: 6%;
-			width: 18%;
-			font-size: 100%;
-		}
-
-		.date22 {
-			position: absolute;
-			opacity: 0.6;
-			top: 60%;
-			left: 1%;
-			color: #000000;
-			z-index: 10;
-			margin: 0;
-			padding: 0;
-			padding: 0;
-			font-size: 100%;
-			height: 4%;
-			width: 18%;
-		}
-
-
-
-		.date1 {
-			position: absolute;
-			opacity: 0.8;
-			top: 48%;
-			left: 1%;
-			color: #FFFFFF;
-			z-index: 10;
-			margin: 0;
-			padding: 0;
-			height: 8%;
-			width: 12%;
-			font-size: 100%;
-				}
-
-		.date11 {
-			position: absolute;
-			opacity: 0.6;
-			top: 52%;
-			left: 1%;
-			color: #000000;
-			z-index: 10;
-			margin: 0;
-			padding: 0;
-			font-size: 100%;
-			height: 4%;
-			width: 18%;
-		}
-
-		.boton1 {
-
-			position: absolute;
-			opacity: 0.8;
-			top: 67%;
-			left: 1%;
-			color: #000000;
-			z-index: 10;
-			margin: 0;
-			padding: 0;
-			height: 6%;
-			width: 18%;
-			font-size: 100%;
-		}
-
-		.boton2 {
-
-			position: absolute;
-			opacity: 0.8;
-			top: 75%;
-			left: 1%;
-			color: #000000;
-			z-index: 10;
-			margin: 0;
-			padding: 0;
-			height: 6%;
-			width: 18%;
-			font-size: 100%;
-		}
-
-		.boton {
-			shape-outside: polygon();
-			background-position: center;
-			background-size: cover;
-			position: absolute;
-			background-image: url(icon.ico);
-			background-repeat: no-repeat;
-			opacity: 0.8;
-			top: 80%;
-			left: 25%;
-			z-index: 10;
-			height: 5.5vh;
-			width: 5.5vh;
-
-		}
-
-		h2 {
-			position: absolute;
-			top: 10%;
-			left: 1%;
-			color: #e9f2eb;
-			z-index: 10;
-			margin: 0;
-			padding: 0;
-		}
-
-		b {
-			
-			font-size: 80%;
-			position: absolute;
-			top: 9%;
-			left: 1%;
-			color: hsla(0, 0%, 100%, 0.671);
-			z-index: 10;
-			margin: 0;
-			padding: 0;
-		}
-		.subtitulo {
-			top: 12%;
-			font-size: 90%;
-		}
-
-		.latitude {
-			top: 17%;
-			left:7%;
-		}
-
-		.longitude {
-			top: 20%;
-			left:7%;
-		}
-
-		.timestep {
-			top: 25%;
-			left:3%;
-			font-size: 70%;
-		}
-
-		h1 {
-			position: absolute;
-			top: 3%;
-			left: 1%;
-			color: #000000;
-			z-index: 20;
-			margin: 0;
-			padding: 5%;
-		}
-
 		#map {
-			
-			position: absolute;
-			top: 15%;
-			left: 23%;
-			z-index: 5;
-			height: 78% ;
-			width: 74%;
-			
-
+			position: relative;
+			z-index: 10;
+			width: 68%;
+			height: 85%;
+			margin-top: 1%;	
+			margin-left: 2%;		
+			float:right;
 		}
-		
+		#map iframe{
+			width:100%;
+		 }
+		#total{
+			width: 100%;
+		}
 		.hero{
-			height: 100%;
-			background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("fondo2.png");
-			background-position: center;
-			background-size: cover;
+			height: 9vh;
+			overflow-y: hidden;
 			overflow-x: hidden;
 			position: relative;
 		}
 		.nav-bar{
 			display:flex;
-			padding:2% 36%;
-			position: absolute;
+			padding:2% 18%;
+			position: relative;
 			z-index: 6;
 		}
 		
@@ -234,7 +60,6 @@
 			height:0.5vh;
 			background:rgba(255, 0, 0, 0.541);
 			display:block;
-			margin:auto;
 			transition:.5s;
 		}
 		.nav-links ul li:hover:after{
@@ -247,82 +72,203 @@
 			overflow-x: hidden;
 			overflow-y:hidden;
 			margin:0; 
+			background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("fondo2.png");
+			background-position: center;
+			background-size: cover;
+		
+		}
+		
+		.historicos{
+			position: relative;
+			width:100%;
+		}
+		#square2 { 
+			display: block;
+			float:left;
+			position: relative;
+			width: 30%;
+			height: 85%;
+			margin-top: 1%;	
+			background-blend-mode: overlay;
+			background: rgb(214, 5, 5, 0.5);
+			overflow-y: auto;
+			overflow-x: hidden;
+			}
+
+		.cars{
+			position: relative;
+			top: 12%;
+			left: 1%;
+			color: hsla(0, 0%, 100%, 0.671);
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			width: 14%;
+		}
+		.subtitulo {
+			position: relative;
+			font-size: 90%;
+		}
+		.car1{
+			background-color: rgb(255, 217, 0);
+			top: 27%;
+			left:7%;
+			width:100%;
+			transition: 0.3s;
+		}
+		.car1:hover {
+ 		background-color: rgb(255, 255, 255);
+		}
+		
+		.car2{
+			background-color:  rgb(255, 217, 0);
+			top: 20%;
+			left:7%;
+			width:100%;
+			transition: 0.3s;
+		}
+		.car2:hover {
+			background-color: rgb(255, 255, 255);
+		   }
+		   
+		.Title {
+			color: #ffc401;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			font-size: 100%;
+			margin-top: 8%;
+		}
+
+
+		.date2 {
+			opacity: 0.8;
+			color: #FFFFFF;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			height: 8%;
+			width: 100%;
+			font-size: 100%;
+			margin-top: 1%;
+		}
+
+		.date22 {
+			opacity: 0.6;
+			color: #000000;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			font-size: 100%;
+			width: 99%;
+			margin-top: 1%;
+		}
+
+		.date1 {
+			opacity: 0.8;
+			color: #FFFFFF;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			font-size: 100%;
+			margin-top: 4%;
+				}
+
+		.date11 {
+			opacity: 0.6;
+			color: #000000;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			font-size: 100%;
+			width: 99%;
+			margin-top: 1%;
+		}
+
+		.boton1 {
+			opacity: 0.8;
+			color: #000000;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			font-size: 100%;
+			margin-top: 1%;
+		}
+
+		.boton2 {
+			opacity: 0.8;
+			top: 67%;
+			left: 1%;
+			color: #000000;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			font-size: 100%;
+			margin-top: 1%;
+			margin-bottom:10%;
+		}
+
+		
+
+		
+		p{
+			margin-top: 1%;
+			font-size: 80%;
+			color: hsl(0, 0%, 93%);
+			z-index: 10;
+			width: 100%;
+		}
+		b {
+			font-size: 100%;
+			color:  #ffc401;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			margin-top: 6%;
+		}
+		
+		.rangos{
+			position: relative;
+			width:100%;
+		}
+		.timestep {
+			width:100%;
+			font-size: 70%;
+		}
+
+		h1 {
+			color: #000000;
+			width: 100%;
+			z-index: 20;
+			margin: 0;
+			padding: 5%;
+		}
+		.slide{
+			width:100%;
 		}
 		
 
-		#square1 {
-			display: block;
-			
-			background-image:url("truckpos.png");
-			background-position: center;
-			background-size: cover;
-			width: 23%;
-			height: 30%;
-			top:8%;
-			position: absolute;;
-			}
-
-		#square2 { 
-			display: block;
-			left:0.5%;
-			top: 39%;
-			opacity: 0.6;
-			position: absolute;
-			width: 22%;
-			height: 43%;
-			background-blend-mode: overlay;
-			background: rgb(5, 214, 144);
-			}
-
-/* esta modificacion corresponde a los estilos para el slider
-	*/
-			#square3 { 
-			display: block;
-			left:0.5%;
-			top: 83%;
-			opacity: 0.9;
-			position: absolute;
-			width: 22%;
-			height: 18%;
-			background-blend-mode: overlay;
-			background: rgb(130, 161, 177);
-			}
-	
-
 			.slider1 {
-				position: absolute;
-				opacity: 0.8;
-				top: 85%;
-				left: 2%;
 				color: #FFFFFF;
 				z-index: 10;
 				margin: 0;
 				padding: 0;
 				padding: 0;
 				font-size: 100%;
-				height: 4%;
-				width: 90%;
+				width: 100%;
 
 			}
-
-
-.slidecontainer {
-
-  width: 20%;
-    background: #d3d3d3;
-	font-size: 70%;
-
-}
-
 
 
 
 .slider {
   -webkit-appearance: none;
-  left: 2%;
-  	top: 70%;
-  width: 22%;
-  height: 12px;
+  width: 100%;
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
@@ -346,8 +292,45 @@
 .slider::-moz-range-thumb {
   width: 25px;
   height: 15px;
-  background: #4CAF50;
+
+  background: #af4c4c;
+
   cursor: pointer;
 }
 
-			
+.timestep1{
+	width:100%;
+	border:none;
+	background: none;
+	color: white;
+	transition: 0.3ms;
+}
+.timestep1:hover {
+	border-left: solid;
+	border-right: solid;
+	/* Start the shake animation and make the animation last for 0.5 seconds */
+	
+	animation: shake 0.5s;
+  
+	/* When the animation is finished, start again */
+	animation-iteration-count: infinite;
+  }
+  
+  @keyframes shake {
+	0% { transform: translate(0.25%, 0.25%) rotate(0deg); }
+	10% { transform: translate(-0.5%, -0.5%) rotate(-1deg); }
+	20% { transform: translate(-0.5%, 0%) rotate(1deg); }
+	30% { transform: translate(0.75%, 0.5%) rotate(0deg); }
+	40% { transform: translate(0.25%, -0.25%) rotate(1deg); }
+	50% { transform: translate(-0.25%, 0.5%) rotate(-1deg); }
+	60% { transform: translate(-0.75%, 0.25%) rotate(0deg); }
+	70% { transform: translate(0.75%, 0.25%) rotate(-1deg); }
+	80% { transform: translate(-0.25%, -0.25%) rotate(1deg); }
+	90% { transform: translate(0.25%, 0.5%) rotate(0deg); }
+	100% { transform: translate(0.25%, -0.5%) rotate(-1deg); }
+  }
+ .timestep1:hover {
+	border-right: 3px ridge #000000;
+	border-left: 3px ridge #000000;
+	background: rgba(0,0,0,0);
+} 
