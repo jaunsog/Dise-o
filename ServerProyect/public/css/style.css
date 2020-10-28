@@ -28,7 +28,7 @@
 		}
 		.nav-bar{
 			display:flex;
-			padding:2% 18%;
+			padding:2% 12%;
 			position: relative;
 			z-index: 6;
 		}

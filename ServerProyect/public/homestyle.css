@@ -5,8 +5,8 @@
 }
 
 .hero{
-    
-	height: 100vh;
+			
+    height: 100vh;
     background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("fondo2.png");
     background-position: center;
     background-size: cover;
@@ -16,6 +16,8 @@
 .nav-bar{
     display:flex;
     padding:3.6vh 73vh;
+    position: absolute;
+    z-index: 6;
 }
 
 .nav-links{
@@ -51,6 +53,7 @@
 .nav-links ul li:hover:after{
     width:100%;    
 }
+
 .bannet-title{
     margin:5vh 6vh;
     color: white;
