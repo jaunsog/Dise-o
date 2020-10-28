@@ -15,6 +15,9 @@ function comparar() {
 	else if (fecha_inicio == "" || fecha_final == "") {
 		alert("Rellene la fecha faltante");
 	}
+	else if(document.getElementById("cr1").innerHTML == "camion1:inactivo" && document.getElementById("cr2").innerHTML == "camion2:inactivo"){
+		alert("Los dos camiones están inactivos, activelos")
+	}
 
 	else {
 		trazar();
@@ -507,4 +510,5 @@ async function limpiar() {
 		mark.setMap(null);
 	} catch (error) { }
 }
+
 
