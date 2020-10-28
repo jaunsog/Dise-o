@@ -50,7 +50,7 @@
         <label class="date1"> Comienzo:</label>
         <input class="date11" id="date01" type="datetime-local" required pattern="yyyy-MM-dd-HH:mm:ss" /><br>
         <label class="date2"> Final:</label>
-        <input class="date22" id="date02" required type="datetime-local" /><br>
+        <input class="date22" id="date02" required type="datetime-local" min="date11"/><br>
         <p class="alerta" id="alerta"></p>
         </form>
         <button class="boton1" onclick="comparar()">Mostrar Histórico</button>
