@@ -30,9 +30,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     EditText IP, puerto;
+    private Handler hndlr = new Handler();
     String sms;
-    int k = 0;
-    int port=47625;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
         IP = (EditText) findViewById(R.id.IP);
         puerto = (EditText) findViewById(R.id.puerto);
 
-    };
-
-    public void UDPbutton (View view){
         while (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {
@@ -54,23 +50,34 @@ public class MainActivity extends AppCompatActivity {
         }
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         LocationListener location = new getlocation();
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 200, location);
-    };
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 100, location);
+    }
+    public void Stop (View view){
+        hndlr.removeCallbacks(envio);
+    }
+    public void UDPbutton (View view){
+        envio.run();
+    }
 
     private class getlocation implements LocationListener {
         @RequiresApi(api = Build.VERSION_CODES.O)
         @SuppressLint("SetTextI18n")
         @Override
         public void onLocationChanged(Location location) {
-
-            String port = puerto.getText().toString();
             Calendar calendar = Calendar.getInstance();
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmm");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyMMddHHmmssZ");
             String timestamp = simpleDateFormat.format(calendar.getTime());
-            sms=location.getLatitude()+","+location.getLongitude()+","+timestamp+","+port;
+            sms=location.getLatitude()+","+location.getLongitude()+","+timestamp;
+        }
+    }
+    private Runnable envio = new Runnable(){
+        @Override
+        public void run() {
+            String msg=sms;
             UDP UDP1 = new UDP();
-            UDP1.execute(sms);
+            UDP1.execute(msg);
             makeText(getApplicationContext(), "Enviado", Toast.LENGTH_LONG).show();
+            hndlr.postDelayed(this, 6000);
         }
     };
 
@@ -78,45 +85,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(String... voids) {
             String mensaje = voids[0];
-
             try {
+                int port = Integer.parseInt(puerto.getText().toString());
                 InetAddress local = InetAddress.getByName(IP.getText().toString());
-                int msg_length = mensaje.length();
-                byte[] mssg = mensaje.getBytes();
-                DatagramSocket su = new DatagramSocket();
-                DatagramPacket p = new DatagramPacket(mssg, msg_length, local, port);
-                su.send(p);
-            } catch (SocketException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                InetAddress local = InetAddress.getByName("18.233.129.12");
-                int msg_length = mensaje.length();
-                byte[] mssg = mensaje.getBytes();
-                DatagramSocket su = new DatagramSocket();
-                DatagramPacket p = new DatagramPacket(mssg, msg_length, local, port);
-                su.send(p);
-            } catch (SocketException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                InetAddress local = InetAddress.getByName("54.198.215.111");
-                int msg_length = mensaje.length();
-                byte[] mssg = mensaje.getBytes();
-                DatagramSocket su = new DatagramSocket();
-                DatagramPacket p = new DatagramPacket(mssg, msg_length, local, port);
-                su.send(p);
-            } catch (SocketException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                InetAddress local = InetAddress.getByName("54.159.110.67");
                 int msg_length = mensaje.length();
                 byte[] mssg = mensaje.getBytes();
                 DatagramSocket su = new DatagramSocket();
@@ -129,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
-    };
-};
+    }
+}
 
 
 
