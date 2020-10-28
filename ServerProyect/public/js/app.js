@@ -1,5 +1,4 @@
 
-
 function comparar() {
 	console.log("holallalala")
 	var fecha_inicio = document.getElementById("date01").value;
@@ -15,6 +14,9 @@ function comparar() {
 	}
 	else if (fecha_inicio == "" || fecha_final == "") {
 		alert("Rellene la fecha faltante");
+	}
+	else if(document.getElementById("cr1").innerHTML == "camion1:inactivo" && document.getElementById("cr2").innerHTML == "camion2:inactivo"){
+		alert("Los dos camiones están inactivos, activelos")
 	}
 
 	else {
@@ -298,6 +300,12 @@ async function trazar() {
 		origin: new google.maps.Point(5, 5), // origin
 		anchor: new google.maps.Point(9, 9) // anchor
 	};
+	const icon1 = {
+		url: 'camion1.png', // url
+		scaledSize: new google.maps.Size(40, 40), // scaled size
+		origin: new google.maps.Point(5, 5), // origin
+		anchor: new google.maps.Point(9, 9) // anchor
+	};
 	const movmarker1 = new google.maps.Marker({
 		position: null,                     ////ESTOOOOOOOOOO
 		map: map,
@@ -319,7 +327,7 @@ async function trazar() {
 		position: null,                     ////ESTOOOOOOOOOO
 
 		map: map,
-		icon: icon,
+		icon: icon1,
 	});
 	const contentString2 =
 		'<div id="content">' +
@@ -357,7 +365,7 @@ async function trazar() {
 			allFechas1.push(parseInt(object.time));
 		});
 		if (Object.keys(data).length == 0) {
-			alert("No se encontraron registros para las fechas seleccionadas")
+			alert("No se encontraron registros para el camion 1 en las fechas seleccionadas")
 		} else {
 
 			path1 = new google.maps.Polyline({
@@ -418,13 +426,13 @@ async function trazar() {
 			allFechas2.push(parseInt(object.time));
 		});
 		if (Object.keys(data).length == 0) {
-			alert("No se encontraron registros para las fechas seleccionadas")
+			alert("No se encontraron registros para el camion 2 en las fechas seleccionadas")
 		} else {
 
 			path2 = new google.maps.Polyline({
 				path: polylinePlanCoordinates2,
 				geodesic: true,
-				strokeColor: '#FF0000',
+				strokeColor: '#0000FF',
 				strokeOpacity: 1.0,
 				strokeWeight: 2
 			});
