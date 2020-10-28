@@ -1,5 +1,4 @@
 
-
 function comparar() {
 	console.log("holallalala")
 	var fecha_inicio = document.getElementById("date01").value;
@@ -298,14 +297,12 @@ async function trazar() {
 		origin: new google.maps.Point(5, 5), // origin
 		anchor: new google.maps.Point(9, 9) // anchor
 	};
-	//
 	const icon1 = {
 		url: 'camion1.png', // url
 		scaledSize: new google.maps.Size(40, 40), // scaled size
 		origin: new google.maps.Point(5, 5), // origin
 		anchor: new google.maps.Point(9, 9) // anchor
 	};
-	//
 	const movmarker1 = new google.maps.Marker({
 		position: null,                     ////ESTOOOOOOOOOO
 		map: map,
@@ -510,5 +507,4 @@ async function limpiar() {
 		mark.setMap(null);
 	} catch (error) { }
 }
-
 
