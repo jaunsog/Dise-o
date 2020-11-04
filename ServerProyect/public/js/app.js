@@ -224,7 +224,6 @@ async function c1() {
 		var mark0 = markers[0];
 		mark0.setPosition(null);
 		pathLive0.setMap(null);
-		mark0.setMap(null);
 		pathLive0 = new google.maps.Polyline({
 			path: polylineLive0,
 			geodesic: true,
@@ -257,7 +256,6 @@ async function c2() {
 		mark1.setPosition(null);
 
 		pathLive1.setMap(null);
-		mark1.setMap(null);
 		pathLive1 = new google.maps.Polyline({
 			path: polylineLive1,
 			geodesic: true,
