@@ -35,6 +35,7 @@
     <div id="square2">
         <!--Bloque Último Visto y Selección de Vehículo-->
         <div class="car">
+        <div class="edit1">    
         <b class="Title" id="title">Selector de vehículo:</b>
         <button class="car1" id="cr1" onclick="c1()">camion1:inactivo</button>
         <button class="timestep1" id="timec1" onclick="center1()">Visto(centrar):</button>
@@ -43,8 +44,10 @@
         <button class="timestep1" id="timec2" onclick="center2()">Visto(centrar):</button>
         <p>Variable: <span id="varhis2"></span></p>
         </div>
+        </div>
         <!--Bloque Históricos-->
         <div class="historicos" id="H">
+        <div class="edit1">   
         <h3 class="Title">Seleccione su rango de interés para trazar una ruta histórica:</h3>
         <form action="" class="form">
         <label class="date1"> Comienzo:</label>
@@ -56,13 +59,16 @@
         <button class="boton1" onclick="comparar()">Mostrar Histórico</button>
         <button class="boton2" onclick="limpiar()">No mostrar Histórico</button>
         </div>
+        </div>
         <!--Bloque Datos dado Históricos-->
         <div class="rangos" id="R">
+        <div class="edit1"></div>
         <b class="Title">Use el slider para visualizar los datos históricos</b>
         <p>Vehículo1:</p>
         <input type="range" value="0" class="slider" id="myRange1">
         <p>Vehículo2:</p>
         <input type="range" value="0" class="slider" id="myRange2">
+        </div>
         </div>
         <script>
 			var slider = document.getElementById("myRange");

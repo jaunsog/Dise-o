@@ -66,7 +66,13 @@
 		.nav-links ul li:hover:after{
 			width:100%;    
 		}
-		
+		.edit1{
+			margin-left: 5%;
+			margin-top: 1%;
+			margin-bottom: 1%;
+			width: 90%;
+			height: 80%;
+		}
 		html, body {
 			height: 100%;
 			width: 100%;
@@ -84,7 +90,7 @@
 			word-wrap: break-word; 
 			float:left;
 			position: relative;
-			width: 34%;
+			width: 29%;
 			height: 100%;	
 			background-position: center;
 			background-size: cover;
@@ -93,9 +99,13 @@
 			
 			}
 		#H{
+			border-style: solid;
+			border: "thick solid #0050FF";
 			visibility: hidden;
 		}
 		#R{
+			border-style: solid;
+			border: "thick solid #0050FF";
 			visibility: hidden;
 		}
 		#myRange1{
@@ -105,11 +115,13 @@
 			visibility: hidden;
 		}
 		.car{
+			border-style: solid;
+			border: "thick solid #0050FF";
 			margin-left: 2%;
-			margin-top: 5%;
+			margin-top: 3%;
 			width:96%;
 			position: center;
-			background-image: url("caja.png");
+			background-color:rgba(0, 0, 0, 0.637);
 			background-position: center;
 			background-size: cover;
 		}
@@ -117,16 +129,18 @@
 			position: relative;
 			margin-left: 2%;
 			width:96%;
-			background-image: url("caja.png");
+			margin-top: 5%;
+			background-color:rgba(0, 0, 0, 0.637);
 			background-position: center;
 			background-size: cover;
 		}
+		
 		.rangos{
-			margin-top: 4%;
+			margin-top: 5%;
 			position: relative;
 			margin-left: 2%;
 			width:96%;
-			background-image: url("caja.png");
+			background-color:rgba(0, 0, 0, 0.637);
 			background-position: center;
 			background-size: cover;
 			margin-bottom: 10%;
@@ -143,9 +157,11 @@
 		}
 		
 		.car1{
-			background-color: rgb(255, 217, 0);
+			background-color: rgb(255, 196, 0);
 			top: 27%;
 			left:7%;
+			font-size: 120%;
+			font-weight: 600;
 			width:100%;
 			transition: 0.3s;
 		}
@@ -154,9 +170,11 @@
 		}
 		
 		.car2{
-			background-color:  rgb(255, 217, 0);
+			background-color: rgb(255, 196, 0);
 			top: 20%;
 			left:7%;
+			font-size: 120%;
+			font-weight: 600;
 			width:100%;
 			transition: 0.3s;
 		}
@@ -166,7 +184,7 @@
 		   
 		.Title {
 			text-align: center;
-			color: #fffb00;
+			color: rgb(255, 196, 0);
 			z-index: 10;
 			margin: 0;
 			padding: 0;
