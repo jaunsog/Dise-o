@@ -85,7 +85,7 @@
 			float:left;
 			position: relative;
 			width: 34%;
-			height: 90%;	
+			height: 80%;	
 			background-position: center;
 			background-size: cover;
 			overflow-y: auto;
@@ -129,7 +129,7 @@
 			background-image: url("caja.png");
 			background-position: center;
 			background-size: cover;
-			margin-bottom: 30%;
+			margin-bottom: 10%;
 		}
 		.cars{
 			position: relative;
