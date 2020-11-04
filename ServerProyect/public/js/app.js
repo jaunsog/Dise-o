@@ -197,11 +197,11 @@ async function texto(ubic) {
 	timestamp = + dia + '-' + mes + '-' + spltime[2] + spltime[3] + ' hora:' + hora + ':' + minuto + ".";
 	if (parseInt(ubic.car) == 0) {
 		document.getElementById("timec1").innerHTML = "Visto(centrar): " + timestamp;
-		document.getElementById("varhis1").innerHTML = + ubic.var;
+		document.getElementById("varhis1").innerHTML =  ubic.var;
 
 	} else {
 		document.getElementById("timec2").innerHTML = "Visto(centrar): " + timestamp;
-		document.getElementById("varhis2").innerHTML = + ubic.var
+		document.getElementById("varhis2").innerHTML =  ubic.var
 	}
 
 }
