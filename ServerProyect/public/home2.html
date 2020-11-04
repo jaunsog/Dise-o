@@ -35,16 +35,16 @@
     <div id="square2">
         <!--Bloque Último Visto y Selección de Vehículo-->
         <div class="car">
-        <b class="subtitulo" id="title">Selector de vehículo:</b>
+        <b class="Title" id="title">Selector de vehículo:</b>
         <button class="car1" id="cr1" onclick="c1()">camion1:inactivo</button>
         <button class="timestep1" id="timec1" onclick="center1()">Visto(centrar):</button>
-        <p>Variable(no implementada): <span id="varhis1"></span></p>
+        <p>Variable: <span id="varhis1"></span></p>
         <button class="car2" id="cr2" onclick="c2()">camion2:inactivo</button>
         <button class="timestep1" id="timec2" onclick="center2()">Visto(centrar):</button>
-        <p>Variable(no implementada): <span id="varhis1"></span></p>
+        <p>Variable: <span id="varhis2"></span></p>
         </div>
         <!--Bloque Históricos-->
-        <div class="historicos">
+        <div class="historicos" id="H">
         <h3 class="Title">Seleccione su rango de interés para trazar una ruta histórica:</h3>
         <form action="" class="form">
         <label class="date1"> Comienzo:</label>
@@ -57,22 +57,14 @@
         <button class="boton2" onclick="limpiar()">No mostrar Histórico</button>
         </div>
         <!--Bloque Datos dado Históricos-->
-        <div class="rangos">
-        <b><strong>Use el slider para visualizar los datos históricos</strong></b>
-        <p>Fecha1: <span id="valor2"></span></p>
-        <p>posicion1: <span id="valor3"></span></p>
-        <p>Variable(no implementada): <span id="varhis1"></span></p>
+        <div class="rangos" id="R">
+        <b class="Title">Use el slider para visualizar los datos históricos</b>
+        <p>Vehículo1:</p>
         <input type="range" value="0" class="slider" id="myRange1">
-        <p>Fecha2: <span id="valor22"></span></p>
-        <p>posicion2: <span id="valor23"></span></p>
-        <p>Variable(no implementada): <span id="varhis2"></span></p>
+        <p>Vehículo2:</p>
         <input type="range" value="0" class="slider" id="myRange2">
         </div>
-    </div>
-
-    <div id="map"> </div>
-    </div>
-		<script>
+        <script>
 			var slider = document.getElementById("myRange");
 			var output = document.getElementById("demo");
 			var valorF = document.getElementById("valor2");
@@ -83,6 +75,11 @@
 
 			}
 		</script>
+    </div>
+
+    <div id="map"> </div>
+    </div>
+		
 
 		<!--finaliza las modificacions-->
 

@@ -5,10 +5,11 @@
 			font-family:sans-serif
 
 		}
+		
 		#map {
 			position: relative;
 			z-index: 10;
-			width: 68%;
+			width: 58%;
 			height: 85%;
 			margin-top: 1%;	
 			margin-left: 2%;		
@@ -78,23 +79,58 @@
 		
 		}
 		
-		.historicos{
-			position: relative;
-			width:100%;
-		}
+		
 		#square2 { 
-			display: block;
+			word-wrap: break-word; 
 			float:left;
 			position: relative;
-			width: 30%;
-			height: 85%;
-			margin-top: 1%;	
-			background-blend-mode: overlay;
-			background: rgb(214, 5, 5, 0.5);
+			width: 39%;
+			height: 90%;	
+			background-position: center;
+			background-size: cover;
 			overflow-y: auto;
 			overflow-x: hidden;
+			
 			}
-
+		#H{
+			visibility: hidden;
+		}
+		#R{
+			visibility: hidden;
+		}
+		#myRange1{
+			visibility: hidden;
+		}
+		#myRange2{
+			visibility: hidden;
+		}
+		.car{
+			margin-left: 2%;
+			margin-top: 5%;
+			width:96%;
+			position: center;
+			background-image: url("caja.png");
+			background-position: center;
+			background-size: cover;
+		}
+		.historicos{
+			position: relative;
+			margin-left: 2%;
+			width:96%;
+			background-image: url("caja.png");
+			background-position: center;
+			background-size: cover;
+		}
+		.rangos{
+			margin-top: 4%;
+			position: relative;
+			margin-left: 2%;
+			width:96%;
+			background-image: url("caja.png");
+			background-position: center;
+			background-size: cover;
+			margin-bottom: 30%;
+		}
 		.cars{
 			position: relative;
 			top: 12%;
@@ -105,10 +141,7 @@
 			padding: 0;
 			width: 14%;
 		}
-		.subtitulo {
-			position: relative;
-			font-size: 90%;
-		}
+		
 		.car1{
 			background-color: rgb(255, 217, 0);
 			top: 27%;
@@ -132,19 +165,21 @@
 		   }
 		   
 		.Title {
-			color: #ffc401;
+			text-align: center;
+			color: #fffb00;
 			z-index: 10;
 			margin: 0;
 			padding: 0;
 			width: 100%;
-			font-size: 100%;
-			margin-top: 8%;
+			font-size: 120%;
+			margin-top: 4%;
 		}
 
 
 		.date2 {
 			opacity: 0.8;
-			color: #FFFFFF;
+			font-weight: 700;
+			color: #ffffff;
 			z-index: 10;
 			margin: 0;
 			padding: 0;
@@ -156,6 +191,7 @@
 
 		.date22 {
 			opacity: 0.6;
+			
 			color: #000000;
 			z-index: 10;
 			margin: 0;
@@ -166,8 +202,9 @@
 		}
 
 		.date1 {
+			font-weight: 700;
 			opacity: 0.8;
-			color: #FFFFFF;
+			color: #ffffff;
 			z-index: 10;
 			margin: 0;
 			padding: 0;
@@ -188,7 +225,7 @@
 		}
 
 		.boton1 {
-			opacity: 0.8;
+			opacity: 0.7;
 			color: #000000;
 			z-index: 10;
 			margin: 0;
@@ -199,7 +236,7 @@
 		}
 
 		.boton2 {
-			opacity: 0.8;
+			opacity: 0.7;
 			top: 67%;
 			left: 1%;
 			color: #000000;
@@ -217,13 +254,16 @@
 		
 		p{
 			font-size: 80%;
-			color: hsl(0, 0%, 93%);
+			font-weight: 700;
+			color: #ffffff;
 			z-index: 10;
 			width: 100%;
 		}
 		b {
+			font-weight: 700;
 			font-size: 100%;
-			color:  #ffc401;
+			color: #ffffff;
+			background-position: center;
 			z-index: 10;
 			margin: 0;
 			padding: 0;
@@ -231,10 +271,7 @@
 			margin-top: 4%;
 		}
 		
-		.rangos{
-			position: relative;
-			width:100%;
-		}
+		
 		.timestep {
 			width:100%;
 			font-size: 70%;
@@ -301,7 +338,10 @@
 	width:100%;
 	border:none;
 	background: none;
-	color: white;
+	font-weight: 700;
+	color: #ffffff;
+	font-size: 100%;
+	background-image: url('caja.jpg');
 	transition: 0.3ms;
 }
 .timestep1:hover {
@@ -333,3 +373,27 @@
 	border-left: 3px ridge #000000;
 	background: rgba(0,0,0,0);
 } 
+@media(max-width: 500px){
+	#map {
+		position: relative;
+		z-index: 10;
+		width: 100%;
+		height: 75%;
+	}
+	#square2{
+		width:100%;
+		float: right;
+	}
+	html, body {
+		height: 100%;
+		width: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+		margin:0; 
+		background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("fondo2.png");
+		background-position: center;
+		background-size: cover;
+	
+	}
+	
+	}
