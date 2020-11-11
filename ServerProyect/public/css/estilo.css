@@ -28,10 +28,11 @@
 		}
 		.nav-bar{
 			display:flex;
-			padding:2% 12%;
+			padding:1% 4%;
 			position: relative;
 			z-index: 6;
 		}
+		
 		
 		.nav-links{
 			width: 100%;
@@ -39,7 +40,7 @@
 			
 		}
 		.nav-links ul{
-			margin-left: 12vh;
+			margin-left: 0vh;
 			display: inline;
 			
 		}

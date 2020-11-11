@@ -21,9 +21,8 @@
                     <a href="index.html">
                         <li id="Home">Inicio</li>
                     </a>
-                    <a href="#">
-                        <li>Monitoreo</li>
-                    </a>
+                    <a href="Tiempo_Real.html"><li>Tiempo Real</li></a>
+                    <a href="#"><li>Históricos</li></a>
                 </ul>
 
             </div>
@@ -38,11 +37,13 @@
         <div class="edit1">    
         <b class="Title" id="title">Selector de vehículo:</b>
         <button class="car1" id="cr1" onclick="c1()">camion1:inactivo</button>
-        <button class="timestep1" id="timec1" onclick="center1()">Visto(centrar):</button>
-        <p>Variable: <span id="varhis1"></span></p>
-        <button class="car2" id="cr2" onclick="c2()">camion2:inactivo</button>
-        <button class="timestep1" id="timec2" onclick="center2()">Visto(centrar):</button>
-        <p>Variable: <span id="varhis2"></span></p>
+        <div class="timestep1" >
+            <h4 id="timec1">Último Visto</h4>
+            </div>
+            <button class="car2" id="cr2" onclick="c2()">camion2:inactivo</button>
+            <div class="timestep1" >
+            <h4 id="timec2">Último Visto</h4>
+            </div>
         </div>
         </div>
         <!--Bloque Históricos-->
