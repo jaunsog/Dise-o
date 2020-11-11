@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="js/miefecto.js"></script>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<script src="js/geolive.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="total"></div>
+    <div class="hero">
+        <div class="nav-bar">
+            <div class="nav-logo">
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <a href="index.html">
+                        <li id="Home">Inicio</li>
+                    </a>
+                    <a href="#"><li>Tiempo Real</li></a>
+                    <a href="Históricos.html">
+                        <li>Históricos</li>
+                    </a>
+                </ul>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div id="square2">
+        <!--Bloque Último Visto y Selección de Vehículo-->
+        <div class="car">
+        <div class="edit1">    
+        <b class="Title" id="title">Selector de vehículo:</b>
+        <button class="car1" id="cr1" onclick="c1()">camion1:inactivo</button>
+        <div class="timestep1" >
+        <h4 id="timec1">Último Visto</h4>
+        <button class="cent"  onclick="center1()"></button>
+        </div>
+        <button class="car2" id="cr2" onclick="c2()">camion2:inactivo</button>
+        <div class="timestep1" >
+        <h4 id="timec2">Último Visto</h4>
+        <button class="cent" onclick="center2()"></button>
+        </div>
+        
+        </div>
+        </div>
+        
+    </div>
+
+    <div id="map"> </div>
+    </div>
+		
+
+		<!--finaliza las modificacions-->
+
+
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZdwg2ZrngBJuPev2Bjn-9ROu0S6Belhg&callback=iniciarMap"></script>
+
+</body>
+
+</html>

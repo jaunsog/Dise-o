@@ -152,38 +152,7 @@ async function movimiento() {
 	try {
 		const ubic = await refresh();
 		texto(ubic);
-		var strtime = ubic.time.toString().split("")
-		var infowindow1 = InfoWindows[parseInt(ubic.car)];
-		if (ubic.var == undefined) {
-			ubic.var = "--"
-		}
-		infowindow1.setContent("#:" + ubic.car + " Tiempo:" + strtime[6] + strtime[7] + "-" + strtime[4] + strtime[5] + "-" + strtime[2] + strtime[3] + " hora:" + strtime[8] + strtime[9] + ":" + strtime[10] + strtime[11] + " V:" + ubic.var);
-		if (document.getElementById("cr1").innerHTML == "camion1:activo" || document.getElementById("cr2").innerHTML == "camion2:activo") {
-			if ((parseInt(ubic.car) == 0) && document.getElementById("cr1").innerHTML == "camion1:activo") {
-				const coord = { lat: ubic.latitude, lng: ubic.longitude };
-				markers[parseInt(ubic.car)].setPosition(coord);
-				const path0 = pathLive0.getPath();
-				path0.push(markers[parseInt(ubic.car)].getPosition());
-				path0.setMap(null);
-				path0.setMap(map);
-
-			} else { }
-			if ((parseInt(ubic.car) == 1) && document.getElementById("cr2").innerHTML == "camion2:activo") {
-				const coord = { lat: ubic.latitude, lng: ubic.longitude };
-				markers[parseInt(ubic.car)].setPosition(coord);
-				const path1 = pathLive1.getPath();
-				path1.push(markers[parseInt(ubic.car)].getPosition());
-				path1.setMap(null);
-				path1.setMap(map);
-			} else {
-
-			}
-		} else {
-
-		}
-
-	} catch (error) { }
-
+	}catch (error){}
 	setTimeout(movimiento, 3000);
 }
 
@@ -196,12 +165,12 @@ async function texto(ubic) {
 	minuto = spltime[10] + spltime[11];
 	timestamp = + dia + '-' + mes + '-' + spltime[2] + spltime[3] + ' hora:' + hora + ':' + minuto + ".";
 	if (parseInt(ubic.car) == 0) {
-		document.getElementById("timec1").innerHTML = "Visto(centrar): " + timestamp;
-		document.getElementById("varhis1").innerHTML =  ubic.var;
+		document.getElementById("timec1").innerHTML = "Visto: " + timestamp;
+		document.getElementById("varhis1").innerHTML = "Variable:"+ ubic.var;
 
 	} else {
-		document.getElementById("timec2").innerHTML = "Visto(centrar): " + timestamp;
-		document.getElementById("varhis2").innerHTML =  ubic.var
+		document.getElementById("timec2").innerHTML = "Visto: " + timestamp;
+		document.getElementById("varhis2").innerHTML = "Variable: "+ ubic.var
 	}
 
 }

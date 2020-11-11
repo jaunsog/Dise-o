@@ -5,7 +5,16 @@
 			font-family:sans-serif
 
 		}
-		
+		h4{
+			width: 70%;
+		}
+		.cent{
+			-webkit-appearance: none;
+			height: 3vh;
+			width: 3vh;
+			background-image: url(icon.ico);
+			background-size: cover;	
+		}
 		#map {
 			position: relative;
 			z-index: 10;
@@ -29,10 +38,11 @@
 		}
 		.nav-bar{
 			display:flex;
-			padding:2% 12%;
+			padding:1% 4%;
 			position: relative;
 			z-index: 6;
 		}
+		
 		
 		.nav-links{
 			width: 100%;
@@ -40,7 +50,7 @@
 			
 		}
 		.nav-links ul{
-			margin-left: 12vh;
+			margin-left: 0vh;
 			display: inline;
 			
 		}
@@ -352,7 +362,7 @@
   cursor: pointer;
 }
 
-.timestep1{
+#timec1{
 	width:100%;
 	border:none;
 	background: none;
@@ -362,35 +372,18 @@
 	background-image: url('caja.jpg');
 	transition: 0.3ms;
 }
-.timestep1:hover {
-	border-left: solid;
-	border-right: solid;
-	/* Start the shake animation and make the animation last for 0.5 seconds */
-	
-	animation: shake 0.5s;
-  
-	/* When the animation is finished, start again */
-	animation-iteration-count: infinite;
-  }
-  
-  @keyframes shake {
-	0% { transform: translate(0.25%, 0.25%) rotate(0deg); }
-	10% { transform: translate(-0.5%, -0.5%) rotate(-1deg); }
-	20% { transform: translate(-0.5%, 0%) rotate(1deg); }
-	30% { transform: translate(0.75%, 0.5%) rotate(0deg); }
-	40% { transform: translate(0.25%, -0.25%) rotate(1deg); }
-	50% { transform: translate(-0.25%, 0.5%) rotate(-1deg); }
-	60% { transform: translate(-0.75%, 0.25%) rotate(0deg); }
-	70% { transform: translate(0.75%, 0.25%) rotate(-1deg); }
-	80% { transform: translate(-0.25%, -0.25%) rotate(1deg); }
-	90% { transform: translate(0.25%, 0.5%) rotate(0deg); }
-	100% { transform: translate(0.25%, -0.5%) rotate(-1deg); }
-  }
- .timestep1:hover {
-	border-right: 3px ridge #000000;
-	border-left: 3px ridge #000000;
-	background: rgba(0,0,0,0);
-} 
+
+#timec2{
+	width:100%;
+	border:none;
+	background: none;
+	font-weight: 700;
+	color: #ffffff;
+	font-size: 100%;
+	background-image: url('caja.jpg');
+	transition: 0.3ms;
+}
+
 @media(max-width: 500px){
 	#map {
 		position: relative;
